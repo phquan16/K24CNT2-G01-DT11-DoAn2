@@ -1,0 +1,292 @@
+{
+  "Version": 1,
+  "WorkspaceRootPath": "D:\\K24CNT2\\K24CNT2-G01-DT11-DoAn2\\FoodOrder\\",
+  "Documents": [
+    {
+      "AbsoluteMoniker": "D:0:0:{976E88F7-22FC-408C-B1F5-BA7B40EEA191}|FoodOrder.csproj|d:\\k24cnt2\\k24cnt2-g01-dt11-doan2\\foodorder\\areas\\admin\\views\\_viewstart.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{976E88F7-22FC-408C-B1F5-BA7B40EEA191}|FoodOrder.csproj|solutionrelative:areas\\admin\\views\\_viewstart.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{976E88F7-22FC-408C-B1F5-BA7B40EEA191}|FoodOrder.csproj|d:\\k24cnt2\\k24cnt2-g01-dt11-doan2\\foodorder\\areas\\admin\\views\\_viewimports.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{976E88F7-22FC-408C-B1F5-BA7B40EEA191}|FoodOrder.csproj|solutionrelative:areas\\admin\\views\\_viewimports.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{976E88F7-22FC-408C-B1F5-BA7B40EEA191}|FoodOrder.csproj|d:\\k24cnt2\\k24cnt2-g01-dt11-doan2\\foodorder\\areas\\admin\\views\\home\\index.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{976E88F7-22FC-408C-B1F5-BA7B40EEA191}|FoodOrder.csproj|solutionrelative:areas\\admin\\views\\home\\index.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{976E88F7-22FC-408C-B1F5-BA7B40EEA191}|FoodOrder.csproj|d:\\k24cnt2\\k24cnt2-g01-dt11-doan2\\foodorder\\areas\\admin\\controllers\\homecontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{976E88F7-22FC-408C-B1F5-BA7B40EEA191}|FoodOrder.csproj|solutionrelative:areas\\admin\\controllers\\homecontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{976E88F7-22FC-408C-B1F5-BA7B40EEA191}|FoodOrder.csproj|d:\\k24cnt2\\k24cnt2-g01-dt11-doan2\\foodorder\\foodorder.csproj||{FA3CD31E-987B-443A-9B81-186104E8DAC1}|",
+      "RelativeMoniker": "D:0:0:{976E88F7-22FC-408C-B1F5-BA7B40EEA191}|FoodOrder.csproj|solutionrelative:foodorder.csproj||{FA3CD31E-987B-443A-9B81-186104E8DAC1}|"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{976E88F7-22FC-408C-B1F5-BA7B40EEA191}|FoodOrder.csproj|d:\\k24cnt2\\k24cnt2-g01-dt11-doan2\\foodorder\\views\\account\\accessdenied.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{976E88F7-22FC-408C-B1F5-BA7B40EEA191}|FoodOrder.csproj|solutionrelative:views\\account\\accessdenied.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{976E88F7-22FC-408C-B1F5-BA7B40EEA191}|FoodOrder.csproj|d:\\k24cnt2\\k24cnt2-g01-dt11-doan2\\foodorder\\views\\account\\index.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{976E88F7-22FC-408C-B1F5-BA7B40EEA191}|FoodOrder.csproj|solutionrelative:views\\account\\index.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{976E88F7-22FC-408C-B1F5-BA7B40EEA191}|FoodOrder.csproj|d:\\k24cnt2\\k24cnt2-g01-dt11-doan2\\foodorder\\viewmodels\\accountcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{976E88F7-22FC-408C-B1F5-BA7B40EEA191}|FoodOrder.csproj|solutionrelative:viewmodels\\accountcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{976E88F7-22FC-408C-B1F5-BA7B40EEA191}|FoodOrder.csproj|d:\\k24cnt2\\k24cnt2-g01-dt11-doan2\\foodorder\\viewmodels\\loginviewmodel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{976E88F7-22FC-408C-B1F5-BA7B40EEA191}|FoodOrder.csproj|solutionrelative:viewmodels\\loginviewmodel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{976E88F7-22FC-408C-B1F5-BA7B40EEA191}|FoodOrder.csproj|d:\\k24cnt2\\k24cnt2-g01-dt11-doan2\\foodorder\\models\\approles.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{976E88F7-22FC-408C-B1F5-BA7B40EEA191}|FoodOrder.csproj|solutionrelative:models\\approles.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{976E88F7-22FC-408C-B1F5-BA7B40EEA191}|FoodOrder.csproj|d:\\k24cnt2\\k24cnt2-g01-dt11-doan2\\foodorder\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{976E88F7-22FC-408C-B1F5-BA7B40EEA191}|FoodOrder.csproj|solutionrelative:program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{976E88F7-22FC-408C-B1F5-BA7B40EEA191}|FoodOrder.csproj|d:\\k24cnt2\\k24cnt2-g01-dt11-doan2\\foodorder\\data\\foodordercontext.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{976E88F7-22FC-408C-B1F5-BA7B40EEA191}|FoodOrder.csproj|solutionrelative:data\\foodordercontext.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{976E88F7-22FC-408C-B1F5-BA7B40EEA191}|FoodOrder.csproj|d:\\k24cnt2\\k24cnt2-g01-dt11-doan2\\foodorder\\models\\applicationuser.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{976E88F7-22FC-408C-B1F5-BA7B40EEA191}|FoodOrder.csproj|solutionrelative:models\\applicationuser.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{976E88F7-22FC-408C-B1F5-BA7B40EEA191}|FoodOrder.csproj|d:\\k24cnt2\\k24cnt2-g01-dt11-doan2\\foodorder\\models\\ingredient.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{976E88F7-22FC-408C-B1F5-BA7B40EEA191}|FoodOrder.csproj|solutionrelative:models\\ingredient.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{976E88F7-22FC-408C-B1F5-BA7B40EEA191}|FoodOrder.csproj|d:\\k24cnt2\\k24cnt2-g01-dt11-doan2\\foodorder\\models\\category.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{976E88F7-22FC-408C-B1F5-BA7B40EEA191}|FoodOrder.csproj|solutionrelative:models\\category.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{976E88F7-22FC-408C-B1F5-BA7B40EEA191}|FoodOrder.csproj|d:\\k24cnt2\\k24cnt2-g01-dt11-doan2\\foodorder\\appsettings.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}",
+      "RelativeMoniker": "D:0:0:{976E88F7-22FC-408C-B1F5-BA7B40EEA191}|FoodOrder.csproj|solutionrelative:appsettings.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}"
+    }
+  ],
+  "DocumentGroupContainers": [
+    {
+      "Orientation": 0,
+      "VerticalTabListWidth": 256,
+      "DocumentGroups": [
+        {
+          "DockedWidth": 200,
+          "SelectedChildIndex": 0,
+          "Children": [
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "_ViewStart.cshtml",
+              "DocumentMoniker": "D:\\K24CNT2\\K24CNT2-G01-DT11-DoAn2\\FoodOrder\\Areas\\Admin\\Views\\_ViewStart.cshtml",
+              "RelativeDocumentMoniker": "Areas\\Admin\\Views\\_ViewStart.cshtml",
+              "ToolTip": "D:\\K24CNT2\\K24CNT2-G01-DT11-DoAn2\\FoodOrder\\Areas\\Admin\\Views\\_ViewStart.cshtml*",
+              "RelativeToolTip": "Areas\\Admin\\Views\\_ViewStart.cshtml*",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAIAAAABAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2026-11-10T16:21:24.717Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "_ViewImports.cshtml",
+              "DocumentMoniker": "D:\\K24CNT2\\K24CNT2-G01-DT11-DoAn2\\FoodOrder\\Areas\\Admin\\Views\\_ViewImports.cshtml",
+              "RelativeDocumentMoniker": "Areas\\Admin\\Views\\_ViewImports.cshtml",
+              "ToolTip": "D:\\K24CNT2\\K24CNT2-G01-DT11-DoAn2\\FoodOrder\\Areas\\Admin\\Views\\_ViewImports.cshtml*",
+              "RelativeToolTip": "Areas\\Admin\\Views\\_ViewImports.cshtml*",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAIAAAAQAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2026-11-10T16:20:38.16Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 2,
+              "Title": "Index.cshtml",
+              "DocumentMoniker": "D:\\K24CNT2\\K24CNT2-G01-DT11-DoAn2\\FoodOrder\\Areas\\Admin\\Views\\Home\\Index.cshtml",
+              "RelativeDocumentMoniker": "Areas\\Admin\\Views\\Home\\Index.cshtml",
+              "ToolTip": "D:\\K24CNT2\\K24CNT2-G01-DT11-DoAn2\\FoodOrder\\Areas\\Admin\\Views\\Home\\Index.cshtml*",
+              "RelativeToolTip": "Areas\\Admin\\Views\\Home\\Index.cshtml*",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAEAAAAjAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2026-11-10T16:19:05.06Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 3,
+              "Title": "HomeController.cs",
+              "DocumentMoniker": "D:\\K24CNT2\\K24CNT2-G01-DT11-DoAn2\\FoodOrder\\Areas\\Admin\\Controllers\\HomeController.cs",
+              "RelativeDocumentMoniker": "Areas\\Admin\\Controllers\\HomeController.cs",
+              "ToolTip": "D:\\K24CNT2\\K24CNT2-G01-DT11-DoAn2\\FoodOrder\\Areas\\Admin\\Controllers\\HomeController.cs*",
+              "RelativeToolTip": "Areas\\Admin\\Controllers\\HomeController.cs*",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAcAAAAnAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-11-10T16:15:19.866Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 5,
+              "Title": "AccessDenied.cshtml",
+              "DocumentMoniker": "D:\\K24CNT2\\K24CNT2-G01-DT11-DoAn2\\FoodOrder\\Views\\Account\\AccessDenied.cshtml",
+              "RelativeDocumentMoniker": "Views\\Account\\AccessDenied.cshtml",
+              "ToolTip": "D:\\K24CNT2\\K24CNT2-G01-DT11-DoAn2\\FoodOrder\\Views\\Account\\AccessDenied.cshtml*",
+              "RelativeToolTip": "Views\\Account\\AccessDenied.cshtml*",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAcAAAAGAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2026-11-10T16:13:50.073Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 6,
+              "Title": "Index.cshtml",
+              "DocumentMoniker": "D:\\K24CNT2\\K24CNT2-G01-DT11-DoAn2\\FoodOrder\\Views\\Account\\Index.cshtml",
+              "RelativeDocumentMoniker": "Views\\Account\\Index.cshtml",
+              "ToolTip": "D:\\K24CNT2\\K24CNT2-G01-DT11-DoAn2\\FoodOrder\\Views\\Account\\Index.cshtml",
+              "RelativeToolTip": "Views\\Account\\Index.cshtml",
+              "ViewState": "AgIAABIAAAAAAAAAAAAAAAAAAAAQAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2026-11-10T16:12:12.06Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 7,
+              "Title": "AccountController.cs",
+              "DocumentMoniker": "D:\\K24CNT2\\K24CNT2-G01-DT11-DoAn2\\FoodOrder\\ViewModels\\AccountController.cs",
+              "RelativeDocumentMoniker": "ViewModels\\AccountController.cs",
+              "ToolTip": "D:\\K24CNT2\\K24CNT2-G01-DT11-DoAn2\\FoodOrder\\ViewModels\\AccountController.cs",
+              "RelativeToolTip": "ViewModels\\AccountController.cs",
+              "ViewState": "AgIAADkAAAAAAAAAAAAowD8AAAA2AAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-11-10T16:06:49.519Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 8,
+              "Title": "LoginViewModel.cs",
+              "DocumentMoniker": "D:\\K24CNT2\\K24CNT2-G01-DT11-DoAn2\\FoodOrder\\ViewModels\\LoginViewModel.cs",
+              "RelativeDocumentMoniker": "ViewModels\\LoginViewModel.cs",
+              "ToolTip": "D:\\K24CNT2\\K24CNT2-G01-DT11-DoAn2\\FoodOrder\\ViewModels\\LoginViewModel.cs",
+              "RelativeToolTip": "ViewModels\\LoginViewModel.cs",
+              "ViewState": "AgIAAAgAAAAAAAAAAAAAwBIAAAAuAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-11-10T16:06:05.869Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 4,
+              "Title": "FoodOrder",
+              "DocumentMoniker": "D:\\K24CNT2\\K24CNT2-G01-DT11-DoAn2\\FoodOrder\\FoodOrder.csproj",
+              "RelativeDocumentMoniker": "FoodOrder.csproj",
+              "ToolTip": "D:\\K24CNT2\\K24CNT2-G01-DT11-DoAn2\\FoodOrder\\FoodOrder.csproj*",
+              "RelativeToolTip": "FoodOrder.csproj*",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000758|",
+              "WhenOpened": "2026-11-10T16:05:44.427Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 9,
+              "Title": "AppRoles.cs",
+              "DocumentMoniker": "D:\\K24CNT2\\K24CNT2-G01-DT11-DoAn2\\FoodOrder\\Models\\AppRoles.cs",
+              "RelativeDocumentMoniker": "Models\\AppRoles.cs",
+              "ToolTip": "D:\\K24CNT2\\K24CNT2-G01-DT11-DoAn2\\FoodOrder\\Models\\AppRoles.cs",
+              "RelativeToolTip": "Models\\AppRoles.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAQAAAAKAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-11-10T16:05:01.01Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 10,
+              "Title": "Program.cs",
+              "DocumentMoniker": "D:\\K24CNT2\\K24CNT2-G01-DT11-DoAn2\\FoodOrder\\Program.cs",
+              "RelativeDocumentMoniker": "Program.cs",
+              "ToolTip": "D:\\K24CNT2\\K24CNT2-G01-DT11-DoAn2\\FoodOrder\\Program.cs",
+              "RelativeToolTip": "Program.cs",
+              "ViewState": "AgIAAB4AAAAAAAAAAAAAAAEAAAAXAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-11-10T15:57:20.288Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 11,
+              "Title": "FoodOrderContext.cs",
+              "DocumentMoniker": "D:\\K24CNT2\\K24CNT2-G01-DT11-DoAn2\\FoodOrder\\Data\\FoodOrderContext.cs",
+              "RelativeDocumentMoniker": "Data\\FoodOrderContext.cs",
+              "ToolTip": "D:\\K24CNT2\\K24CNT2-G01-DT11-DoAn2\\FoodOrder\\Data\\FoodOrderContext.cs",
+              "RelativeToolTip": "Data\\FoodOrderContext.cs",
+              "ViewState": "AgIAACkAAAAAAAAAAAAuwDMAAAAtAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-11-10T15:52:25.651Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 12,
+              "Title": "ApplicationUser.cs",
+              "DocumentMoniker": "D:\\K24CNT2\\K24CNT2-G01-DT11-DoAn2\\FoodOrder\\Models\\ApplicationUser.cs",
+              "RelativeDocumentMoniker": "Models\\ApplicationUser.cs",
+              "ToolTip": "D:\\K24CNT2\\K24CNT2-G01-DT11-DoAn2\\FoodOrder\\Models\\ApplicationUser.cs",
+              "RelativeToolTip": "Models\\ApplicationUser.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAcAAAAyAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-11-10T15:51:10.987Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 13,
+              "Title": "Ingredient.cs",
+              "DocumentMoniker": "D:\\K24CNT2\\K24CNT2-G01-DT11-DoAn2\\FoodOrder\\Models\\Ingredient.cs",
+              "RelativeDocumentMoniker": "Models\\Ingredient.cs",
+              "ToolTip": "D:\\K24CNT2\\K24CNT2-G01-DT11-DoAn2\\FoodOrder\\Models\\Ingredient.cs",
+              "RelativeToolTip": "Models\\Ingredient.cs",
+              "ViewState": "AgIAAA0AAAAAAAAAAAA5wAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-11-10T15:50:09.84Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 14,
+              "Title": "Category.cs",
+              "DocumentMoniker": "D:\\K24CNT2\\K24CNT2-G01-DT11-DoAn2\\FoodOrder\\Models\\Category.cs",
+              "RelativeDocumentMoniker": "Models\\Category.cs",
+              "ToolTip": "D:\\K24CNT2\\K24CNT2-G01-DT11-DoAn2\\FoodOrder\\Models\\Category.cs",
+              "RelativeToolTip": "Models\\Category.cs",
+              "ViewState": "AgIAAAkAAAAAAAAAAAA1wAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-11-10T15:49:30.563Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 15,
+              "Title": "appsettings.json",
+              "DocumentMoniker": "D:\\K24CNT2\\K24CNT2-G01-DT11-DoAn2\\FoodOrder\\appsettings.json",
+              "RelativeDocumentMoniker": "appsettings.json",
+              "ToolTip": "D:\\K24CNT2\\K24CNT2-G01-DT11-DoAn2\\FoodOrder\\appsettings.json",
+              "RelativeToolTip": "appsettings.json",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAIAAACGAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001642|",
+              "WhenOpened": "2026-11-10T15:32:24.432Z",
+              "EditorCaption": ""
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}
