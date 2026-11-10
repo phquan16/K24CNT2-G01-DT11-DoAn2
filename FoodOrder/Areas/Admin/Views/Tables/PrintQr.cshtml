@@ -1,0 +1,17 @@
+﻿@model List<FoodOrder.Models.Table>
+@{ ViewData["Title"] = "In mã QR"; }
+
+<button class="btn btn-primary mb-3 d-print-none" onclick="window.print()">In mã QR</button>
+
+<div class="row row-cols-2 row-cols-md-3 g-3">
+@foreach (var t in Model)
+{
+    <div class="col">
+        <div class="card text-center p-3" style="break-inside: avoid;">
+            <img src="@Url.Action("Qr", new { id = t.TableId })" class="img-fluid mx-auto" style="max-width: 220px;" alt="QR @t.TableCode" />
+            <h4 class="mt-2 mb-0">@t.TableName</h4>
+            <div class="text-muted">Quét mã để gọi món</div>
+        </div>
+    </div>
+}
+</div>

@@ -1,0 +1,45 @@
+﻿@model List<FoodOrder.Models.Category>
+@{
+    ViewData["Title"] = "Danh mục";
+}
+
+    <div class="d-flex justify-content-between align-items-center mb-3">
+        <h2>Danh mục món ăn</h2>
+        <a class="btn btn-primary" asp-action="Create">+ Thêm danh mục</a>
+    </div>
+
+    @if (TempData["Success"] != null)
+    {
+        <div class="alert alert-success">@TempData["Success"]</div>
+    }
+
+    <table class="table table-striped align-middle">
+        <thead>
+            <tr>
+                <th>Mã</th>
+                <th>Tên danh mục</th>
+                <th>Slug</th>
+                <th>Thứ tự</th>
+                <th>Trạng thái</th>
+                <th></th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var c in Model)
+            {
+                <tr>
+                    <td>@c.CategoryId</td>
+                    <td>@c.CategoryName</td>
+                    <td>@c.Slug</td>
+                    <td>@c.SortOrder</td>
+                    <td>@(c.IsActive ? "Đang hiển thị" : "Đã ẩn")</td>
+                    <td class="text-end">
+                        <a class="btn btn-sm btn-outline-secondary" asp-action="Edit" asp-route-id="@c.CategoryId">Sửa</a>
+                        <form asp-action="Toggle" asp-route-id="@c.CategoryId" method="post" class="d-inline">
+                            <button type="submit" class="btn btn-sm btn-outline-danger">@(c.IsActive ? "Ẩn" : "Hiện lại")</button>
+                        </form>
+                    </td>
+                </tr>
+            }
+        </tbody>
+    </table>

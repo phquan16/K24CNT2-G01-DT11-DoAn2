@@ -1,0 +1,79 @@
+﻿@using FoodOrder.Helpers
+@model FoodOrder.ViewModels.MenuPageViewModel
+@{
+    ViewData["Title"] = "Thực đơn - " + Model.TableName;
+    Layout = "_MenuLayout";
+}
+
+<h4 class="mb-1">Thực đơn</h4>
+<div class="text-muted mb-3">Bạn đang ngồi <strong>@Model.TableName</strong></div>
+
+<form method="get" class="input-group mb-3">
+    <input type="hidden" name="table" value="@Model.TableCode" />
+    <input type="hidden" name="categoryId" value="@Model.CategoryId" />
+    <input type="text" name="q" value="@Model.Keyword" class="form-control" placeholder="Tìm món..." />
+    <button class="btn btn-primary" type="submit">Tìm</button>
+</form>
+
+<div class="d-flex flex-wrap gap-2 mb-3">
+    <a class="btn btn-sm @(Model.CategoryId == null ? "btn-primary" : "btn-outline-primary")"
+       asp-action="Index" asp-route-table="@Model.TableCode" asp-route-q="@Model.Keyword">Tất cả</a>
+    @foreach (var c in Model.Categories)
+    {
+        <a class="btn btn-sm @(Model.CategoryId == c.CategoryId ? "btn-primary" : "btn-outline-primary")"
+           asp-action="Index" asp-route-table="@Model.TableCode" asp-route-categoryId="@c.CategoryId" asp-route-q="@Model.Keyword">@c.CategoryName</a>
+    }
+</div>
+
+@if (!Model.Items.Any())
+{
+    <div class="alert alert-warning">Không tìm thấy món phù hợp.</div>
+}
+
+<div class="row row-cols-2 row-cols-md-3 row-cols-lg-4 g-3">
+@foreach (var p in Model.Items)
+{
+    <div class="col">
+        <div class="card h-100 shadow-sm">
+            <img src="@(p.ImageUrl ?? "/images/no-image.svg")" class="card-img-top" alt="@p.ProductName"
+                 style="height:120px; object-fit:cover"
+                 onerror="this.onerror=null; this.src='/images/no-image.svg'" />
+            <div class="card-body d-flex flex-column">
+                <h6 class="card-title">@p.ProductName</h6>
+                <div class="mt-auto">
+                @if (p.SalePrice.HasValue)
+                {
+                    <span class="text-danger fw-bold">@p.SalePrice.Value.ToVnd()</span>
+                    <small class="text-muted text-decoration-line-through">@p.Price.ToVnd()</small>
+                }
+                else
+                {
+                    <span class="fw-bold">@p.Price.ToVnd()</span>
+                }
+                @if (p.IsSoldOut)
+                {
+                    <div><span class="badge bg-secondary">Hết món</span></div>
+                }
+                </div>
+            </div>
+        </div>
+    </div>
+}
+</div>
+
+@if (Model.TotalPages > 1)
+{
+    <nav class="mt-4">
+        <ul class="pagination justify-content-center">
+            <li class="page-item @(Model.Page <= 1 ? "disabled" : "")">
+                <a class="page-link" asp-action="Index" asp-route-table="@Model.TableCode"
+                   asp-route-categoryId="@Model.CategoryId" asp-route-q="@Model.Keyword" asp-route-page="@(Model.Page - 1)">Trước</a>
+            </li>
+            <li class="page-item disabled"><span class="page-link">@Model.Page / @Model.TotalPages</span></li>
+            <li class="page-item @(Model.Page >= Model.TotalPages ? "disabled" : "")">
+                <a class="page-link" asp-action="Index" asp-route-table="@Model.TableCode"
+                   asp-route-categoryId="@Model.CategoryId" asp-route-q="@Model.Keyword" asp-route-page="@(Model.Page + 1)">Sau</a>
+            </li>
+        </ul>
+    </nav>
+}

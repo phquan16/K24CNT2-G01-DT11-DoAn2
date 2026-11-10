@@ -1,0 +1,49 @@
+﻿@model List<FoodOrder.Models.Table>
+@{ ViewData["Title"] = "Bàn ăn"; }
+
+<div class="d-flex justify-content-between align-items-center mb-3">
+    <h2>Bàn ăn và mã QR</h2>
+    <div>
+        <a class="btn btn-outline-secondary" asp-action="PrintQr" target="_blank">In tất cả QR</a>
+        <a class="btn btn-primary" asp-action="Create">+ Thêm bàn</a>
+    </div>
+</div>
+
+@if (TempData["Success"] != null)
+{
+    <div class="alert alert-success">@TempData["Success"]</div>
+}
+
+<table class="table table-striped align-middle">
+    <thead>
+        <tr>
+            <th>QR</th>
+            <th>Mã bàn</th>
+            <th>Tên bàn</th>
+            <th>Khu vực</th>
+            <th>Trạng thái</th>
+            <th>Sử dụng</th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+    @foreach (var t in Model)
+    {
+        <tr>
+            <td><img src="@Url.Action("Qr", new { id = t.TableId })" width="64" height="64" alt="QR @t.TableCode" /></td>
+            <td>@t.TableCode</td>
+            <td>@t.TableName</td>
+            <td>@t.Area</td>
+            <td>@t.Status</td>
+            <td>@(t.IsActive ? "Có" : "Không")</td>
+            <td class="text-end">
+                <a class="btn btn-sm btn-outline-secondary" asp-action="Edit" asp-route-id="@t.TableId">Sửa</a>
+                <a class="btn btn-sm btn-outline-primary" asp-action="Qr" asp-route-id="@t.TableId" asp-route-download="true">Tải PNG</a>
+                <form asp-action="Toggle" asp-route-id="@t.TableId" method="post" class="d-inline">
+                    <button type="submit" class="btn btn-sm btn-outline-danger">@(t.IsActive ? "Ngưng" : "Dùng lại")</button>
+                </form>
+            </td>
+        </tr>
+    }
+    </tbody>
+</table>

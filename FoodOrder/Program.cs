@@ -1,5 +1,6 @@
 using FoodOrder.Data;
 using FoodOrder.Models;
+using FoodOrder.Services;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.EntityFrameworkCore;
 
@@ -30,15 +31,17 @@ using Microsoft.EntityFrameworkCore;
         options.SlidingExpiration = true;
     });
 
-    // 3. Đăng ký Service nghiệp vụ (sẽ bổ sung dần ở các bước sau)
-    // builder.Services.AddScoped<ICategoryService, CategoryService>();
+    // 3. Đăng ký Service nghiệp vụ 
+    builder.Services.AddScoped<ICategoryService, CategoryService>();
+    builder.Services.AddScoped<ITableSessionService, TableSessionService>();
+    builder.Services.AddScoped<IMenuService, MenuService>();
 
-    // 4. Các dịch vụ mở rộng
-    // builder.Services.AddSignalR(); // Dùng ở Phần 2
-    builder.Services.AddSwaggerGen(); // Dùng ở Phần 3
+// 4. Các dịch vụ mở rộng
+    builder.Services.AddSignalR(); 
+    builder.Services.AddSwaggerGen(); 
     builder.Services.AddControllersWithViews();
 
-    var app = builder.Build();
+var app = builder.Build();
 
     if (!app.Environment.IsDevelopment())
     {
