@@ -7,6 +7,7 @@ namespace FoodOrder.Services;
 public interface IMenuService
 {
     Task<MenuPageViewModel> GetMenuAsync(int? categoryId, string? keyword, int page, int pageSize);
+    Task<ProductDetailViewModel?> GetDetailAsync(int productId);
 }
 
 public class MenuService : IMenuService
@@ -48,7 +49,10 @@ public class MenuService : IMenuService
                 SalePrice = p.SalePrice,
                 SpiceLevel = p.SpiceLevel,
                 IsSoldOut = !p.IsAvailable || (p.Stock != null && p.Stock <= 0),
-                ImageUrl = p.ProductImage.Where(t => t.IsMain).Select(t => t.ImageUrl).FirstOrDefault()
+                ImageUrl = p.ProductImages
+                    .OrderByDescending(t => t.IsMain)
+                    .Select(t => t.ImageUrl)
+                    .FirstOrDefault()
             })
             .ToListAsync();
 
@@ -70,6 +74,56 @@ public class MenuService : IMenuService
             TotalPages = (int)Math.Ceiling(total / (double)pageSize),
             Categories = categories,
             Items = items
+        };
+    }
+
+    public async Task<ProductDetailViewModel?> GetDetailAsync(int productId)
+    {
+        var product = await _db.Products.AsNoTracking()
+            .Include(p => p.Category)
+            .Include(p => p.ProductImages)
+            .Include(p => p.ProductOptions)
+            .FirstOrDefaultAsync(p => p.ProductId == productId && p.IsActive && p.Category.IsActive);
+
+        if (product == null) return null;
+
+        var reviewStats = await _db.Reviews.AsNoTracking()
+            .Where(r => r.ProductId == productId)
+            .GroupBy(r => r.ProductId)
+            .Select(g => new { Count = g.Count(), Avg = g.Average(r => (double)r.Rating) })
+            .FirstOrDefaultAsync();
+
+        return new ProductDetailViewModel
+        {
+            ProductId = product.ProductId,
+            ProductName = product.ProductName,
+            Description = product.Description,
+            Composition = product.Composition,
+            Price = product.Price,
+            SalePrice = product.SalePrice,
+            SpiceLevel = product.SpiceLevel,
+            Calories = product.Calories,
+            IsSoldOut = !product.IsAvailable || (product.Stock != null && product.Stock <= 0),
+            ImageUrl = product.ProductImages
+                .OrderByDescending(i => i.IsMain)
+                .Select(i => i.ImageUrl)
+                .FirstOrDefault(),
+            ReviewCount = reviewStats?.Count ?? 0,
+            AverageRating = reviewStats?.Avg,
+            Groups = product.ProductOptions
+                .GroupBy(o => o.OptionName)
+                .OrderBy(g => g.Key)
+                .Select(g => new OptionGroupViewModel
+                {
+                    Name = g.Key,
+                    Choices = g.OrderBy(o => o.ExtraPrice).ThenBy(o => o.OptionValue)
+                        .Select(o => new OptionChoiceViewModel
+                        {
+                            ProductOptionId = o.ProductOptionId,
+                            Value = o.OptionValue,
+                            ExtraPrice = o.ExtraPrice
+                        }).ToList()
+                }).ToList()
         };
     }
 }
