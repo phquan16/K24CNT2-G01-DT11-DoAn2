@@ -1,10 +1,10 @@
 ﻿using FoodOrder.Data;
+using FoodOrder.Helpers;
 using FoodOrder.Models;
-using FoodOrder.Services;
 using FoodOrder.ViewModels;
 using Microsoft.EntityFrameworkCore;
 
-namespace FoodOrder.Web.Services;
+namespace FoodOrder.Services;
 
 public class ProductService : IProductService
 {
@@ -13,11 +13,14 @@ public class ProductService : IProductService
 
     public async Task<ProductListViewModel> GetListAsync(int? categoryId, string? keyword, int page, int pageSize)
     {
+        if (page < 1) page = 1;
+        if (pageSize < 1) pageSize = 15;
+
         var q = _db.Products.AsNoTracking().Include(p => p.Category).Include(p => p.ProductImages).AsQueryable();
 
-        if (categoryId.HasValue) q = q.Where(p => p.CategoryId == categoryId);
+        if (categoryId.HasValue) q = q.Where(p => p.CategoryId == categoryId.Value);
         if (!string.IsNullOrWhiteSpace(keyword))
-            q = q.Where(p => p.ProductName.Contains(keyword.Trim()));   // collation Vietnamese_CI_AS: không phân biệt hoa thường
+            q = q.Where(p => p.ProductName.Contains(keyword.Trim())); // collation tiếng Việt không phân biệt hoa thường
 
         var total = await q.CountAsync();
         var items = await q.OrderBy(p => p.ProductName)
@@ -28,6 +31,7 @@ public class ProductService : IProductService
                 Name = p.ProductName,
                 CategoryName = p.Category.CategoryName,
                 Price = p.Price,
+                SalePrice = p.SalePrice,
                 Stock = p.Stock,
                 IsAvailable = p.IsAvailable,
                 IsActive = p.IsActive,
@@ -43,7 +47,13 @@ public class ProductService : IProductService
             PageSize = pageSize,
             TotalItems = total,
             Categories = await _db.Categories.AsNoTracking().OrderBy(c => c.SortOrder).ThenBy(c => c.CategoryName)
-                .Select(c => new CategoryViewModel { CategoryId = c.CategoryId, Name = c.CategoryName }).ToListAsync()
+                .Select(c => new CategoryViewModel
+                {
+                    CategoryId = c.CategoryId,
+                    CategoryName = c.CategoryName,
+                    SortOrder = c.SortOrder,
+                    IsActive = c.IsActive
+                }).ToListAsync()
         };
     }
 
@@ -57,7 +67,11 @@ public class ProductService : IProductService
             Name = p.ProductName,
             CategoryId = p.CategoryId,
             Price = p.Price,
+            SalePrice = p.SalePrice,
             Description = p.Description,
+            Composition = p.Composition,
+            SpiceLevel = p.SpiceLevel,
+            Calories = p.Calories,
             Stock = p.Stock,
             IsAvailable = p.IsAvailable,
             IsActive = p.IsActive,
@@ -72,7 +86,11 @@ public class ProductService : IProductService
             ProductName = vm.Name.Trim(),
             CategoryId = vm.CategoryId,
             Price = vm.Price,
-            Description = vm.Description,
+            SalePrice = vm.SalePrice,
+            Description = string.IsNullOrWhiteSpace(vm.Description) ? null : vm.Description.Trim(),
+            Composition = string.IsNullOrWhiteSpace(vm.Composition) ? null : vm.Composition.Trim(),
+            SpiceLevel = vm.SpiceLevel,
+            Calories = vm.Calories,
             Stock = vm.Stock,
             IsAvailable = vm.IsAvailable,
             IsActive = true
@@ -87,14 +105,22 @@ public class ProductService : IProductService
         var p = await _db.Products.FirstOrDefaultAsync(x => x.ProductId == vm.ProductId);
         if (p == null) return false;
 
-        // Quan trọng: gán RowVersion CŨ (lúc mở form) vào OriginalValue.
+        // Gán RowVersion CŨ (lúc mở form) vào OriginalValue.
         // EF sẽ sinh: UPDATE ... WHERE ProductId = @id AND RowVersion = @old
-        var original = Convert.FromBase64String(vm.RowVersionBase64 ?? "");
+        if (!RowVersionHelper.TryParse(vm.RowVersionBase64, out var original)) return false;
         _db.Entry(p).Property(x => x.RowVersion).OriginalValue = original;
 
-        p.ProductName = vm.Name.Trim(); p.CategoryId = vm.CategoryId; p.Price = vm.Price;
-        p.Description = vm.Description; p.Stock = vm.Stock;
-        p.IsAvailable = vm.IsAvailable; p.IsActive = vm.IsActive;
+        p.ProductName = vm.Name.Trim();
+        p.CategoryId = vm.CategoryId;
+        p.Price = vm.Price;
+        p.SalePrice = vm.SalePrice;
+        p.Description = string.IsNullOrWhiteSpace(vm.Description) ? null : vm.Description.Trim();
+        p.Composition = string.IsNullOrWhiteSpace(vm.Composition) ? null : vm.Composition.Trim();
+        p.SpiceLevel = vm.SpiceLevel;
+        p.Calories = vm.Calories;
+        p.Stock = vm.Stock;
+        p.IsAvailable = vm.IsAvailable;
+        p.IsActive = vm.IsActive;
 
         try { await _db.SaveChangesAsync(); return true; }
         catch (DbUpdateConcurrencyException) { return false; }

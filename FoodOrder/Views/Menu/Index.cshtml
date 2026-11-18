@@ -1,12 +1,11 @@
-﻿@using FoodOrder.Helpers
-@model FoodOrder.ViewModels.MenuPageViewModel
+﻿@model FoodOrder.ViewModels.MenuPageViewModel
 @{
     ViewData["Title"] = "Thực đơn - " + Model.TableName;
     Layout = "_MenuLayout";
 }
 
 <h4 class="mb-1">Thực đơn</h4>
-<div class="text-muted mb-3">Bạn đang ngồi <strong>@Model.TableName</strong></div>
+<div class="text-muted mb-3">Bạn đang ngồi <strong>@Model.TableName</strong>. Chạm vào món để chọn số lượng và tùy chọn.</div>
 
 <form method="get" class="input-group mb-3">
     <input type="hidden" name="table" value="@Model.TableCode" />
@@ -35,25 +34,38 @@
 {
     <div class="col">
         <div class="card h-100 shadow-sm">
-            <img src="@(p.ImageUrl ?? "/images/no-image.svg")" class="card-img-top" alt="@p.ProductName"
-                 style="height:120px; object-fit:cover"
-                 onerror="this.onerror=null; this.src='/images/no-image.svg'" />
+            <a asp-action="Detail" asp-route-id="@p.ProductId" asp-route-table="@Model.TableCode" class="text-decoration-none">
+                <img src="@(p.ImageUrl ?? "/images/no-image.svg")" class="card-img-top" alt="@p.ProductName"
+                     style="height:120px; object-fit:cover"
+                     onerror="this.onerror=null; this.src='/images/no-image.svg'" />
+            </a>
             <div class="card-body d-flex flex-column">
-                <h6 class="card-title">@p.ProductName</h6>
+                <a asp-action="Detail" asp-route-id="@p.ProductId" asp-route-table="@Model.TableCode"
+                   class="text-decoration-none text-dark"><h6 class="card-title">@p.ProductName</h6></a>
+                @if (p.SpiceLevel > 0)
+                {
+                    <div class="small text-danger">Độ cay: @p.SpiceLevel/3</div>
+                }
                 <div class="mt-auto">
-                @if (p.SalePrice.HasValue)
-                {
-                    <span class="text-danger fw-bold">@p.SalePrice.Value.ToVnd()</span>
-                    <small class="text-muted text-decoration-line-through">@p.Price.ToVnd()</small>
-                }
-                else
-                {
-                    <span class="fw-bold">@p.Price.ToVnd()</span>
-                }
-                @if (p.IsSoldOut)
-                {
-                    <div><span class="badge bg-secondary">Hết món</span></div>
-                }
+                    @if (p.SalePrice.HasValue)
+                    {
+                        <span class="text-danger fw-bold">@p.SalePrice.Value.ToVnd()</span>
+                        <small class="text-muted text-decoration-line-through">@p.Price.ToVnd()</small>
+                    }
+                    else
+                    {
+                        <span class="fw-bold">@p.Price.ToVnd()</span>
+                    }
+                    @if (p.IsSoldOut)
+                    {
+                        <div><span class="badge bg-secondary">Hết món</span></div>
+                    }
+                    else
+                    {
+                        <div class="mt-2">
+                            <a class="btn btn-sm btn-primary w-100" asp-action="Detail" asp-route-id="@p.ProductId" asp-route-table="@Model.TableCode">Chọn món</a>
+                        </div>
+                    }
                 </div>
             </div>
         </div>

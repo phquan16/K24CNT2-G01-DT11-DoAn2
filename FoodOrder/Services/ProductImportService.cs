@@ -1,8 +1,5 @@
-﻿using CsvHelper;
+using CsvHelper;
 using CsvHelper.Configuration;
-using FoodOrder.Data;
-using FoodOrder.Models;
-using FoodOrder.ViewModels;
 using FoodOrder.Data;
 using FoodOrder.Models;
 using FoodOrder.ViewModels;
@@ -10,12 +7,6 @@ using Microsoft.EntityFrameworkCore;
 using System.Globalization;
 
 namespace FoodOrder.Services;
-
-public interface IProductImportService
-{
-    Task<ImportPreviewViewModel> PreviewAsync(Stream csv);
-    Task<int> CommitAsync(List<ImportRow> rows);   // trả về số món đã thêm
-}
 
 public class ProductImportService : IProductImportService
 {
@@ -46,7 +37,8 @@ public class ProductImportService : IProductImportService
         {
             using var reader = new StreamReader(csv, System.Text.Encoding.UTF8, true);
             using var parser = new CsvReader(reader, cfg);
-            await parser.ReadAsync(); parser.ReadHeader();
+            await parser.ReadAsync();
+            parser.ReadHeader();
             var line = 1;
             while (await parser.ReadAsync())
             {
@@ -77,7 +69,11 @@ public class ProductImportService : IProductImportService
                     else errors.Add("Tồn kho phải là số nguyên >= 0");
                 }
 
-                if (errors.Count > 0) { row.Status = "Lỗi"; row.Message = string.Join("; ", errors); }
+                if (errors.Count > 0)
+                {
+                    row.Status = "Lỗi";
+                    row.Message = string.Join("; ", errors);
+                }
                 else
                 {
                     var key = (row.ProductName.ToLower(), row.CategoryId);

@@ -1,0 +1,122 @@
+@model FoodOrder.ViewModels.ProductDetailViewModel
+@{
+    ViewData["Title"] = Model.ProductName;
+    Layout = "_MenuLayout";
+    var unitPrice = Model.SalePrice ?? Model.Price;
+}
+
+<a class="btn btn-sm btn-outline-secondary mb-3" asp-action="Index" asp-route-table="@Model.TableCode">&larr; Thực đơn</a>
+
+<div class="row g-4">
+    <div class="col-md-5">
+        <img src="@(Model.ImageUrl ?? "/images/no-image.svg")" class="img-fluid rounded shadow-sm w-100"
+             style="max-height:320px; object-fit:cover" alt="@Model.ProductName"
+             onerror="this.onerror=null; this.src='/images/no-image.svg'" />
+    </div>
+    <div class="col-md-7">
+        <h3>@Model.ProductName</h3>
+        <div class="mb-2">
+            @if (Model.SalePrice.HasValue)
+            {
+                <span class="fs-4 text-danger fw-bold">@Model.SalePrice.Value.ToVnd()</span>
+                <span class="text-muted text-decoration-line-through">@Model.Price.ToVnd()</span>
+            }
+            else
+            {
+                <span class="fs-4 fw-bold">@Model.Price.ToVnd()</span>
+            }
+        </div>
+        <div class="small text-muted mb-2">
+            @if (Model.SpiceLevel > 0)
+            {
+                <span class="me-3">Độ cay: @Model.SpiceLevel/3</span>
+            }
+            @if (Model.Calories.HasValue)
+            {
+                <span class="me-3">@Model.Calories kcal</span>
+            }
+            <span>@Model.ReviewCount đánh giá@(Model.AverageRating.HasValue ? $" · {Model.AverageRating.Value:0.0}/5" : "")</span>
+        </div>
+        @if (!string.IsNullOrWhiteSpace(Model.Description))
+        {
+            <p class="mb-2">@Model.Description</p>
+        }
+        @if (!string.IsNullOrWhiteSpace(Model.Composition))
+        {
+            <p class="text-muted small mb-3">Thành phần: @Model.Composition</p>
+        }
+
+        @if (Model.IsSoldOut)
+        {
+            <div class="alert alert-secondary">Món hiện đã hết. Vui lòng chọn món khác.</div>
+        }
+        else
+        {
+            <form asp-controller="Cart" asp-action="Add" method="post" class="border rounded p-3 bg-white">
+                <input type="hidden" name="table" value="@Model.TableCode" />
+                <input type="hidden" name="productId" value="@Model.ProductId" />
+
+                @foreach (var group in Model.Groups)
+                {
+                    <div class="mb-3">
+                        <div class="fw-semibold mb-1">@group.Name</div>
+                        @foreach (var choice in group.Choices)
+                        {
+                            <div class="form-check">
+                                <input class="form-check-input" type="radio" name="optionIds"
+                                       id="opt-@choice.ProductOptionId" value="@choice.ProductOptionId" required />
+                                <label class="form-check-label" for="opt-@choice.ProductOptionId">
+                                    @choice.Value
+                                    @if (choice.ExtraPrice > 0)
+                                    {
+                                        <span class="text-muted">(@("+" + choice.ExtraPrice.ToVnd()))</span>
+                                    }
+                                </label>
+                            </div>
+                        }
+                    </div>
+                }
+
+                <div class="row g-2 align-items-end">
+                    <div class="col-4 col-md-3">
+                        <label class="form-label mb-1" for="quantity">Số lượng</label>
+                        <input id="quantity" type="number" name="quantity" value="1" min="1" max="50" class="form-control" required />
+                    </div>
+                    <div class="col-8 col-md-9">
+                        <label class="form-label mb-1" for="note">Ghi chú cho món (không bắt buộc)</label>
+                        <input id="note" type="text" name="note" maxlength="300" class="form-control" placeholder="Ví dụ: ít cay, không hành..." />
+                    </div>
+                </div>
+
+                <button type="submit" class="btn btn-primary w-100 mt-3">
+                    Thêm vào giỏ · @unitPrice.ToVnd()
+                </button>
+            </form>
+        }
+    </div>
+</div>
+
+<div class="mt-4">
+    <h5>Đánh giá món</h5>
+    @if (Model.Reviews.Count == 0)
+    {
+        <p class="text-muted">Chưa có đánh giá.</p>
+    }
+    else
+    {
+        foreach (var r in Model.Reviews)
+        {
+            <div class="border rounded p-2 mb-2 bg-white">
+                <div class="d-flex justify-content-between">
+                    <strong>@r.CustomerName</strong>
+                    <span class="text-warning">@(new string('★', r.Rating))</span>
+                </div>
+                @if (!string.IsNullOrWhiteSpace(r.Comment))
+                {
+                    <div>@r.Comment</div>
+                }
+                <div class="small text-muted">@r.CreatedAt.ToString("dd/MM/yyyy HH:mm")</div>
+            </div>
+        }
+    }
+</div>

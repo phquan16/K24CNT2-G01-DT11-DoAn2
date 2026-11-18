@@ -1,8 +1,55 @@
 ﻿@{
-    ViewData["Title"] = "Home Page";
+    ViewData["Title"] = "Trang chủ";
 }
 
-<div class="text-center">
-    <h1 class="display-4">Welcome</h1>
-    <p>Learn about <a href="https://learn.microsoft.com/aspnet/core">building Web apps with ASP.NET Core</a>.</p>
+<div class="p-4 p-md-5 mb-4 bg-white rounded-3 border">
+    <h1 class="display-6 fw-bold">FoodOrder</h1>
+    <p class="lead">Hệ thống gọi món bằng mã QR và quản lý nhà hàng.</p>
+    <p class="text-muted mb-0">
+        Khách ngồi tại bàn quét mã QR dán trên bàn để xem thực đơn và tự gọi món.
+        Nhân viên đăng nhập để vận hành bếp, phục vụ, thu ngân và quản trị.
+    </p>
+</div>
+
+<div class="row g-3">
+    <div class="col-md-4">
+        <div class="card h-100 shadow-sm">
+            <div class="card-body">
+                <h5 class="card-title">Khách gọi món</h5>
+                <p class="card-text text-muted">
+                    Quét mã QR tại bàn. Mã QR được in từ mục <strong>Bàn ăn &amp; QR</strong> trong trang quản trị.
+                </p>
+                <p class="card-text small text-muted mb-0">Đường dẫn trên mã QR có dạng <code>/Menu?table=MÃ_BÀN</code>.</p>
+            </div>
+        </div>
+    </div>
+    <div class="col-md-4">
+        <div class="card h-100 shadow-sm">
+            <div class="card-body">
+                <h5 class="card-title">Nhân viên</h5>
+                <p class="card-text text-muted">Đăng nhập để vào màn hình bếp, sơ đồ bàn, thu ngân hoặc khu quản trị tùy theo vai trò.</p>
+                @if (User.Identity?.IsAuthenticated == true)
+                {
+                    <span class="text-success small">Bạn đã đăng nhập với vai trò: @string.Join(", ", User.Claims.Where(c => c.Type == System.Security.Claims.ClaimTypes.Role).Select(c => c.Value))</span>
+                }
+                else
+                {
+                    <a class="btn btn-primary" asp-controller="Account" asp-action="Login">Đăng nhập</a>
+                }
+            </div>
+        </div>
+    </div>
+    <div class="col-md-4">
+        <div class="card h-100 shadow-sm">
+            <div class="card-body">
+                <h5 class="card-title">Quy trình</h5>
+                <ol class="mb-0 text-muted small">
+                    <li>Khách quét QR, chọn món và gửi đơn.</li>
+                    <li>Bếp nhận món, cập nhật trạng thái chế biến.</li>
+                    <li>Phục vụ mang món ra bàn.</li>
+                    <li>Thu ngân thu tiền mặt hoặc thanh toán VNPay.</li>
+                </ol>
+            </div>
+        </div>
+    </div>
 </div>

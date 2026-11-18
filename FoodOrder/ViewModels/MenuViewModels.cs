@@ -57,5 +57,14 @@ public class ProductDetailViewModel
     public int ReviewCount { get; set; }
     public double? AverageRating { get; set; }
     public List<OptionGroupViewModel> Groups { get; set; } = new();
+    public List<ProductReviewViewModel> Reviews { get; set; } = new();
     public string TableCode { get; set; } = string.Empty;
+}
+
+public class ProductReviewViewModel
+{
+    public string CustomerName { get; set; } = string.Empty;
+    public byte Rating { get; set; }
+    public string? Comment { get; set; }
+    public DateTime CreatedAt { get; set; }
 }

@@ -1,10 +1,8 @@
 ﻿using FoodOrder.Data;
 using FoodOrder.Models;
-using FoodOrder.Data;
-using FoodOrder.Models;
 using Microsoft.EntityFrameworkCore;
 
-namespace FoodOrder.Web.Services;
+namespace FoodOrder.Services;
 
 public interface IProductImageService
 {
@@ -21,7 +19,12 @@ public class ProductImageService : IProductImageService
 
     private readonly FoodOrderContext _db;
     private readonly IWebHostEnvironment _env;
-    public ProductImageService(FoodOrderContext db, IWebHostEnvironment env) { _db = db; _env = env; }
+
+    public ProductImageService(FoodOrderContext db, IWebHostEnvironment env)
+    {
+        _db = db;
+        _env = env;
+    }
 
     public Task<List<ProductImage>> GetAsync(int productId)
         => _db.ProductImages.AsNoTracking().Where(i => i.ProductId == productId)
@@ -52,7 +55,7 @@ public class ProductImageService : IProductImageService
             {
                 ProductId = productId,
                 ImageUrl = $"/images/products/{productId}/{name}",
-                IsMain = !hasMain          // ảnh đầu tiên tự thành ảnh chính
+                IsMain = !hasMain // ảnh đầu tiên tự thành ảnh chính
             });
             hasMain = true;
         }
@@ -86,7 +89,7 @@ public class ProductImageService : IProductImageService
         await _db.SaveChangesAsync();
         if (File.Exists(path)) File.Delete(path);
 
-        if (wasMain)   // xóa ảnh chính thì đẩy ảnh còn lại lên làm ảnh chính
+        if (wasMain) // xóa ảnh chính thì đẩy ảnh còn lại lên làm ảnh chính
         {
             var next = await _db.ProductImages.Where(i => i.ProductId == productId)
                                 .OrderBy(i => i.ProductImageId).FirstOrDefaultAsync();

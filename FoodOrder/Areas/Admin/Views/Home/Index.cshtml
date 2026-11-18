@@ -1,7 +1,59 @@
-﻿@{
-    ViewData["Title"] = " Trang Cấm ";
+﻿@model FoodOrder.ViewModels.DashboardViewModel
+@{
+    ViewData["Title"] = "Tổng quan";
 }
 
-<div class="text-center">
-    <h2>Trang quản trị</h2>
+<div class="d-flex flex-wrap justify-content-between align-items-center gap-2 mb-3">
+    <div>
+        <h4 class="mb-0">Tổng quan quản trị</h4>
+        <div class="text-muted small">7 ngày gần nhất</div>
+    </div>
+    <div class="d-flex flex-wrap gap-2">
+        <a class="btn btn-sm btn-primary" asp-area="Admin" asp-controller="Products" asp-action="Index">Sản phẩm</a>
+        <a class="btn btn-sm btn-primary" asp-area="Admin" asp-controller="Orders" asp-action="Index">Đơn hàng</a>
+        <a class="btn btn-sm btn-primary" asp-area="Admin" asp-controller="Staff" asp-action="Index">Nhân viên</a>
+        <a class="btn btn-sm btn-outline-primary" asp-area="Admin" asp-controller="Reports" asp-action="Index">Báo cáo chi tiết</a>
+    </div>
+</div>
+
+<partial name="_Dashboard" model="Model" />
+
+<div class="card shadow-sm mt-3">
+    <div class="card-header bg-white fw-semibold">Đơn mới nhất</div>
+    @if (Model.RecentOrders.Count == 0)
+    {
+        <div class="card-body text-muted">Chưa có đơn hàng.</div>
+    }
+    else
+    {
+        <div class="table-responsive">
+            <table class="table table-sm mb-0">
+                <thead>
+                    <tr>
+                        <th>Mã đơn</th>
+                        <th>Bàn</th>
+                        <th>Thời gian</th>
+                        <th>Trạng thái</th>
+                        <th class="text-end">Tổng tiền</th>
+                        <th></th>
+                    </tr>
+                </thead>
+                <tbody>
+                @foreach (var row in Model.RecentOrders)
+                {
+                    <tr>
+                        <td>@row.OrderCode</td>
+                        <td>@row.TableName</td>
+                        <td class="small text-muted">@row.CreatedAt.ToString("dd/MM HH:mm")</td>
+                        <td>@row.Status</td>
+                        <td class="text-end">@row.TotalAmount.ToVnd()</td>
+                        <td class="text-end">
+                            <a class="btn btn-sm btn-outline-primary" asp-area="Admin" asp-controller="Orders" asp-action="Detail" asp-route-id="@row.OrderId">Xem</a>
+                        </td>
+                    </tr>
+                }
+                </tbody>
+            </table>
+        </div>
+    }
 </div>

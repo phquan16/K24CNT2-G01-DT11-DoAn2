@@ -1,0 +1,121 @@
+@model FoodOrder.ViewModels.KitchenBoardViewModel
+@{
+    ViewData["Title"] = "Màn hình bếp";
+}
+
+<div class="d-flex justify-content-between align-items-center mb-3">
+    <h4 class="mb-0">Màn hình bếp</h4>
+    <button type="button" class="btn btn-sm btn-outline-secondary" onclick="location.reload()">Làm mới</button>
+</div>
+
+<div class="row g-3">
+    <div class="col-lg-7">
+        <div class="card shadow-sm">
+            <div class="card-header bg-white fw-semibold">Cần chế biến (@Model.Queue.Count)</div>
+            <div class="card-body p-0">
+                @if (Model.Queue.Count == 0)
+                {
+                    <div class="p-3 text-muted">Không có món đang chờ.</div>
+                }
+                else
+                {
+                    <div class="table-responsive">
+                        <table class="table table-sm align-middle mb-0">
+                            <thead>
+                                <tr>
+                                    <th>Bàn</th>
+                                    <th>Món</th>
+                                    <th class="text-center">SL</th>
+                                    <th>Trạng thái</th>
+                                    <th></th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                            @foreach (var row in Model.Queue)
+                            {
+                                <tr>
+                                    <td>
+                                        <div class="fw-semibold">@row.TableName</div>
+                                        <div class="small text-muted">@row.OrderCode · @row.CreatedAt.ToString("HH:mm")</div>
+                                    </td>
+                                    <td>
+                                        <div>@row.ProductName</div>
+                                        @if (!string.IsNullOrWhiteSpace(row.SelectedOptions))
+                                        {
+                                            <div class="small text-muted">@row.SelectedOptions</div>
+                                        }
+                                        @if (!string.IsNullOrWhiteSpace(row.Note))
+                                        {
+                                            <div class="small text-danger">Ghi chú: @row.Note</div>
+                                        }
+                                    </td>
+                                    <td class="text-center">@row.Quantity</td>
+                                    <td>
+                                        <span class="badge @(row.ItemStatus == "Mới" ? "bg-light text-dark border" : "bg-warning text-dark")">@row.ItemStatus</span>
+                                    </td>
+                                    <td class="text-end">
+                                        <div class="d-flex gap-1 justify-content-end">
+                                            @if (row.ItemStatus == "Mới")
+                                            {
+                                                <form asp-action="Start" method="post">
+                                                    <input type="hidden" name="id" value="@row.OrderDetailId" />
+                                                    <button type="submit" class="btn btn-sm btn-primary">Bắt đầu</button>
+                                                </form>
+                                            }
+                                            else
+                                            {
+                                                <form asp-action="Done" method="post">
+                                                    <input type="hidden" name="id" value="@row.OrderDetailId" />
+                                                    <button type="submit" class="btn btn-sm btn-success">Hoàn thành</button>
+                                                </form>
+                                            }
+                                            <form asp-action="Cancel" method="post" onsubmit="return confirm('Hủy món này? Tồn kho sẽ được hoàn.');">
+                                                <input type="hidden" name="id" value="@row.OrderDetailId" />
+                                                <button type="submit" class="btn btn-sm btn-outline-danger">Hủy</button>
+                                            </form>
+                                        </div>
+                                    </td>
+                                </tr>
+                            }
+                            </tbody>
+                        </table>
+                    </div>
+                }
+            </div>
+        </div>
+    </div>
+
+    <div class="col-lg-5">
+        <div class="card shadow-sm">
+            <div class="card-header bg-white fw-semibold">Chờ phục vụ (@Model.Ready.Count)</div>
+            <div class="card-body p-0">
+                @if (Model.Ready.Count == 0)
+                {
+                    <div class="p-3 text-muted">Chưa có món nào xong.</div>
+                }
+                else
+                {
+                    <ul class="list-group list-group-flush">
+                    @foreach (var row in Model.Ready)
+                    {
+                        <li class="list-group-item d-flex justify-content-between align-items-start">
+                            <div>
+                                <div class="fw-semibold">@row.ProductName <span class="text-muted">x@(row.Quantity)</span></div>
+                                <div class="small text-muted">@row.TableName · @row.OrderCode</div>
+                            </div>
+                            <span class="badge bg-success">Đã xong</span>
+                        </li>
+                    }
+                    </ul>
+                }
+            </div>
+            <div class="card-footer bg-white small text-muted">
+                Nhân viên phục vụ xác nhận "Đã phục vụ" tại màn hình Sơ đồ bàn.
+            </div>
+        </div>
+    </div>
+</div>
+
+@section Scripts {
+    <script>setTimeout(function () { location.reload(); }, 30000);</script>
+}

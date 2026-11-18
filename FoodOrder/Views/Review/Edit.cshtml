@@ -1,0 +1,46 @@
+@model FoodOrder.ViewModels.ReviewEditViewModel
+@{
+    ViewData["Title"] = "Đánh giá món";
+    Layout = "_MenuLayout";
+}
+
+<h4 class="mb-1">Đánh giá món</h4>
+<div class="text-muted mb-3">@Model.ProductName · Bàn <strong>@Model.TableName</strong></div>
+
+<form asp-action="Edit" method="post" class="bg-white rounded shadow-sm p-3" style="max-width:560px">
+    <input type="hidden" asp-for="ProductId" />
+    <input type="hidden" asp-for="ProductName" />
+    <input type="hidden" asp-for="TableCode" />
+    <input type="hidden" asp-for="TableName" />
+    <div asp-validation-summary="ModelOnly" class="text-danger mb-2"></div>
+
+    <div class="mb-3">
+        <label asp-for="Rating" class="form-label">Số sao</label>
+        <select asp-for="Rating" class="form-select">
+            <option value="5">5 sao - Rất ngon</option>
+            <option value="4">4 sao - Ngon</option>
+            <option value="3">3 sao - Bình thường</option>
+            <option value="2">2 sao - Chưa ổn</option>
+            <option value="1">1 sao - Không hài lòng</option>
+        </select>
+        <span asp-validation-for="Rating" class="text-danger"></span>
+    </div>
+
+    <div class="mb-3">
+        <label asp-for="CustomerName" class="form-label"></label>
+        <input asp-for="CustomerName" class="form-control" maxlength="100" />
+        <span asp-validation-for="CustomerName" class="text-danger"></span>
+    </div>
+
+    <div class="mb-3">
+        <label asp-for="Comment" class="form-label"></label>
+        <textarea asp-for="Comment" class="form-control" rows="3" maxlength="500"></textarea>
+        <span asp-validation-for="Comment" class="text-danger"></span>
+    </div>
+
+    <button type="submit" class="btn btn-primary">Gửi đánh giá</button>
+</form>
+
+@section Scripts {
+    <partial name="_ValidationScriptsPartial" />
+}

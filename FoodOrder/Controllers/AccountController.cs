@@ -1,9 +1,12 @@
 ﻿using FoodOrder.Models;
+using FoodOrder.ViewModels;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
 
-namespace FoodOrder.ViewModels
+namespace FoodOrder.Controllers
 {
+    [AllowAnonymous]
     public class AccountController : Controller
     {
         private readonly SignInManager<ApplicationUser> _signInManager;
@@ -16,18 +19,22 @@ namespace FoodOrder.ViewModels
         }
 
         [HttpGet]
-        public IActionResult Login(string? returnUrl = null) => View(new LoginViewModel { ReturnUrl = returnUrl });
+        public IActionResult Login(string? returnUrl = null)
+        {
+            if (User.Identity?.IsAuthenticated == true) return RedirectToAction("Index", "Home");
+            return View("Index", new LoginViewModel { ReturnUrl = returnUrl });
+        }
 
         [HttpPost, ValidateAntiForgeryToken]
         public async Task<IActionResult> Login(LoginViewModel model)
         {
-            if (!ModelState.IsValid) return View(model);
+            if (!ModelState.IsValid) return View("Index", model);
 
             var user = await _userManager.FindByNameAsync(model.UserName);
             if (user == null || !user.IsActive)
             {
                 ModelState.AddModelError(string.Empty, "Sai tên đăng nhập hoặc mật khẩu.");
-                return View(model);
+                return View("Index", model);
             }
 
             var result = await _signInManager.PasswordSignInAsync(user, model.Password, model.RememberMe, lockoutOnFailure: true);
@@ -35,23 +42,15 @@ namespace FoodOrder.ViewModels
             if (result.Succeeded)
             {
                 if (!string.IsNullOrEmpty(model.ReturnUrl) && Url.IsLocalUrl(model.ReturnUrl))
-                {
                     return Redirect(model.ReturnUrl);
-                }
 
-                var roles = await _userManager.GetRolesAsync(user);
-                if (roles.Contains(AppRoles.Admin))
-                {
-                    return RedirectToAction("Index", "Home", new { area = "Admin" });
-                }
-
-                return RedirectToAction("Index", "Home");
+                return RedirectToRoleHome(await _userManager.GetRolesAsync(user));
             }
 
             ModelState.AddModelError(string.Empty, result.IsLockedOut
                 ? "Tài khoản bị khóa tạm thời, vui lòng thử lại sau."
                 : "Sai tên đăng nhập hoặc mật khẩu.");
-            return View(model);
+            return View("Index", model);
         }
 
         [HttpPost, ValidateAntiForgeryToken]
@@ -62,5 +61,19 @@ namespace FoodOrder.ViewModels
         }
 
         public IActionResult AccessDenied() => View();
+
+        private IActionResult RedirectToRoleHome(IList<string> roles)
+        {
+            if (roles.Contains(AppRoles.Admin))
+                return RedirectToAction("Index", "Home", new { area = "Admin" });
+            if (roles.Contains(AppRoles.Cashier))
+                return RedirectToAction("Index", "Home", new { area = "Cashier" });
+            if (roles.Contains(AppRoles.Kitchen))
+                return RedirectToAction("Index", "Queue", new { area = "Kitchen" });
+            if (roles.Contains(AppRoles.Waiter))
+                return RedirectToAction("Index", "Home", new { area = "Waiter" });
+
+            return RedirectToAction("Index", "Home");
+        }
     }
 }

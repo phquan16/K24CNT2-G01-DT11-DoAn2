@@ -1,4 +1,6 @@
 using System.Data;
+using System.Security.Cryptography;
+using System.Text;
 using FoodOrder.Data;
 using FoodOrder.Helpers;
 using FoodOrder.Models;
@@ -46,6 +48,9 @@ public interface IPaymentService
     Task<(bool Ok, string? Error)> ConfirmCashAsync(long orderId);
     Task<(bool Ok, string? Error)> CompleteVnPayAsync(string orderCode, Guid sessionToken, int tableId, bool success, string? responseCode);
     Task<(bool Ok, string? Error)> ApplyGatewayResultAsync(string orderCode, bool success, string? responseCode);
+    Task<(bool Ok, string? Error)> ApplyVnPayReturnAsync(IReadOnlyDictionary<string, string?> query, Guid sessionToken, int tableId);
+    Task<(decimal CashTotal, int CashCount, int VnPayPending)> GetTodaySummaryAsync();
+    Task<string?> BuildGatewayUrlForOrderAsync(string orderCode, string returnUrl, string ipAddress);
     bool HasGateway { get; }
     string? BuildGatewayUrl(Order order, string returnUrl, string ipAddress);
 }
@@ -164,6 +169,78 @@ public class PaymentService : IPaymentService
 
     public Task<(bool Ok, string? Error)> ApplyGatewayResultAsync(string orderCode, bool success, string? responseCode) =>
         CompleteCoreAsync(orderCode, success, responseCode, sessionRestricted: false, sessionToken: Guid.Empty, tableId: 0);
+
+    public async Task<(bool Ok, string? Error)> ApplyVnPayReturnAsync(
+        IReadOnlyDictionary<string, string?> query, Guid sessionToken, int tableId)
+    {
+        if (!VerifySignature(query)) return (false, "Chữ ký VNPay không hợp lệ.");
+
+        var orderCode = GetValue(query, "vnp_TxnRef");
+        if (string.IsNullOrWhiteSpace(orderCode)) return (false, "Thiếu mã đơn thanh toán.");
+        var responseCode = GetValue(query, "vnp_ResponseCode");
+        var txnStatus = GetValue(query, "vnp_TransactionStatus");
+        var amountRaw = GetValue(query, "vnp_Amount");
+
+        var total = await _db.Orders.AsNoTracking()
+            .Where(o => o.OrderCode == orderCode)
+            .Select(o => (decimal?)o.TotalAmount)
+            .FirstOrDefaultAsync();
+        if (total == null) return (false, "Không tìm thấy đơn hàng.");
+        if (!long.TryParse(amountRaw, out var paidAmount) || paidAmount != (long)total.Value * 100)
+            return (false, "Số tiền thanh toán không khớp với đơn hàng.");
+
+        var success = responseCode == "00" && (string.IsNullOrEmpty(txnStatus) || txnStatus == "00");
+        return await CompleteCoreAsync(orderCode, success, responseCode, true, sessionToken, tableId);
+    }
+
+    public async Task<(decimal CashTotal, int CashCount, int VnPayPending)> GetTodaySummaryAsync()
+    {
+        var today = DateTime.Today;
+        var cash = _db.Payments.AsNoTracking()
+            .Where(p => p.PaymentMethod == PayMethod.Cash
+                && p.Status == PaymentTxnStatus.Success
+                && p.CreatedAt >= today);
+
+        var cashTotal = await cash.SumAsync(p => (decimal?)p.Amount) ?? 0;
+        var cashCount = await cash.CountAsync();
+        var vnPayPending = await _db.Orders.AsNoTracking()
+            .CountAsync(o => o.Status == OrderStatus.AwaitingPayment
+                && o.PaymentMethod == PayMethod.VnPay);
+        return (cashTotal, cashCount, vnPayPending);
+    }
+
+    public async Task<string?> BuildGatewayUrlForOrderAsync(string orderCode, string returnUrl, string ipAddress)
+    {
+        var order = await _db.Orders.AsNoTracking()
+            .FirstOrDefaultAsync(o => o.OrderCode == orderCode);
+        if (order == null || order.PaymentMethod != PayMethod.VnPay) return null;
+        if (order.PaymentStatus == PayStatus.Paid || order.Status != OrderStatus.AwaitingPayment) return null;
+        return BuildGatewayUrl(order, returnUrl, ipAddress);
+    }
+
+    private bool VerifySignature(IReadOnlyDictionary<string, string?> query)
+    {
+        var secret = _config["VnPay:HashSecret"];
+        if (string.IsNullOrWhiteSpace(secret)) return false;
+        var provided = GetValue(query, "vnp_SecureHash");
+        if (string.IsNullOrWhiteSpace(provided)) return false;
+
+        var data = string.Join("&", query
+            .Where(kv => kv.Key.StartsWith("vnp_", StringComparison.OrdinalIgnoreCase)
+                && !string.Equals(kv.Key, "vnp_SecureHash", StringComparison.OrdinalIgnoreCase)
+                && !string.Equals(kv.Key, "vnp_SecureHashType", StringComparison.OrdinalIgnoreCase)
+                && !string.IsNullOrEmpty(kv.Value))
+            .OrderBy(kv => kv.Key, StringComparer.Ordinal)
+            .Select(kv => $"{kv.Key}={Uri.EscapeDataString(kv.Value!)}"));
+
+        var expected = VnPayHash.HmacSha512(secret, data);
+        var a = Encoding.ASCII.GetBytes(expected.ToLowerInvariant());
+        var b = Encoding.ASCII.GetBytes(provided.ToLowerInvariant());
+        return a.Length == b.Length && CryptographicOperations.FixedTimeEquals(a, b);
+    }
+
+    private static string? GetValue(IReadOnlyDictionary<string, string?> query, string key) =>
+        query.TryGetValue(key, out var value) ? value : null;
 
     public string? BuildGatewayUrl(Order order, string returnUrl, string ipAddress)
     {

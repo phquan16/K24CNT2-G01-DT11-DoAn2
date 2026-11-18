@@ -1,0 +1,141 @@
+@model List<FoodOrder.Services.CashBillRow>
+@{
+    ViewData["Title"] = "Thu ngân";
+    var cashTotal = ViewData["CashTotal"] as decimal? ?? 0m;
+    var cashCount = ViewData["CashCount"] as int? ?? 0;
+    var vnPayPending = ViewData["VnPayPending"] as int? ?? 0;
+    var refunds = ViewData["Refunds"] as List<FoodOrder.Services.RefundRow> ?? new List<FoodOrder.Services.RefundRow>();
+}
+
+<div class="d-flex justify-content-between align-items-center mb-3">
+    <h4 class="mb-0">Thu ngân</h4>
+    <button type="button" class="btn btn-sm btn-outline-secondary" onclick="location.reload()">Làm mới</button>
+</div>
+
+<div class="row g-3 mb-4">
+    <div class="col-md-4">
+        <div class="card shadow-sm">
+            <div class="card-body">
+                <div class="text-muted small">Tiền mặt đã thu hôm nay</div>
+                <div class="fs-4 fw-bold">@cashTotal.ToVnd()</div>
+                <div class="small text-muted">@cashCount hóa đơn</div>
+            </div>
+        </div>
+    </div>
+    <div class="col-md-4">
+        <div class="card shadow-sm">
+            <div class="card-body">
+                <div class="text-muted small">Đơn tiền mặt chờ thu</div>
+                <div class="fs-4 fw-bold">@Model.Count</div>
+                <div class="small text-muted">Tổng: @Model.Sum(b => b.TotalAmount).ToVnd()</div>
+            </div>
+        </div>
+    </div>
+    <div class="col-md-4">
+        <div class="card shadow-sm">
+            <div class="card-body">
+                <div class="text-muted small">Đơn VNPay chờ thanh toán</div>
+                <div class="fs-4 fw-bold">@vnPayPending</div>
+                <div class="small text-muted">Tự hủy sau 15 phút nếu không thanh toán.</div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<h5>Hóa đơn tiền mặt chưa thu</h5>
+@if (Model.Count == 0)
+{
+    <div class="alert alert-info">Không có hóa đơn tiền mặt nào đang chờ.</div>
+}
+else
+{
+    foreach (var bill in Model)
+    {
+        var collapseId = $"bill-{bill.OrderId}";
+        <div class="card mb-3 shadow-sm">
+            <div class="card-header bg-white d-flex flex-wrap justify-content-between align-items-center gap-2">
+                <div>
+                    <strong>@bill.OrderCode</strong>
+                    <span class="text-muted small">· @bill.TableName @(string.IsNullOrWhiteSpace(bill.Area) ? "" : $"({bill.Area})") · @bill.CreatedAt.ToString("HH:mm dd/MM")</span>
+                </div>
+                <div class="d-flex align-items-center gap-2">
+                    <span class="badge bg-light text-dark border">@bill.Status</span>
+                    <span class="fs-5 fw-bold text-danger">@bill.TotalAmount.ToVnd()</span>
+                </div>
+            </div>
+            <div class="card-body">
+                <button class="btn btn-sm btn-outline-secondary mb-2" type="button" data-bs-toggle="collapse" data-bs-target="#@collapseId">
+                    Xem món (@bill.Items.Count)
+                </button>
+                <div class="collapse" id="@collapseId">
+                    <table class="table table-sm mb-2">
+                        <thead>
+                            <tr>
+                                <th>Món</th>
+                                <th class="text-center">SL</th>
+                                <th class="text-end">Đơn giá</th>
+                                <th>Trạng thái</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                        @foreach (var item in bill.Items)
+                        {
+                            <tr>
+                                <td>
+                                    @item.ProductName
+                                    @if (!string.IsNullOrWhiteSpace(item.SelectedOptions))
+                                    {
+                                        <div class="small text-muted">@item.SelectedOptions</div>
+                                    }
+                                </td>
+                                <td class="text-center">@item.Quantity</td>
+                                <td class="text-end">@item.UnitPrice.ToVnd()</td>
+                                <td><span class="badge bg-light text-dark border">@item.ItemStatus</span></td>
+                            </tr>
+                        }
+                        </tbody>
+                    </table>
+                </div>
+                <form asp-action="ConfirmCash" method="post" onsubmit="return confirm('Xác nhận đã thu @bill.TotalAmount.ToVnd() cho đơn @bill.OrderCode?');">
+                    <input type="hidden" name="id" value="@bill.OrderId" />
+                    <button type="submit" class="btn btn-success">Xác nhận đã thu tiền mặt</button>
+                </form>
+            </div>
+        </div>
+    }
+}
+
+<h5 class="mt-4">Giao dịch cần hoàn tiền</h5>
+@if (refunds.Count == 0)
+{
+    <div class="alert alert-info">Không có giao dịch cần hoàn tiền.</div>
+}
+else
+{
+    <div class="table-responsive bg-white rounded shadow-sm">
+        <table class="table table-sm mb-0">
+            <thead>
+                <tr>
+                    <th>Mã đơn</th>
+                    <th>Bàn</th>
+                    <th class="text-end">Số tiền</th>
+                    <th>Mã giao dịch</th>
+                    <th>Thời điểm</th>
+                </tr>
+            </thead>
+            <tbody>
+            @foreach (var r in refunds)
+            {
+                <tr>
+                    <td>@r.OrderCode</td>
+                    <td>@r.TableName</td>
+                    <td class="text-end">@r.Amount.ToVnd()</td>
+                    <td class="small text-muted">@r.TransactionRef</td>
+                    <td class="small text-muted">@r.CreatedAt.ToString("dd/MM/yyyy HH:mm")</td>
+                </tr>
+            }
+            </tbody>
+        </table>
+    </div>
+    <div class="small text-muted mt-1">Các giao dịch VNPay đã trả nhưng đơn bị hủy món; hoàn tiền được xử lý ngoài hệ thống.</div>
+}

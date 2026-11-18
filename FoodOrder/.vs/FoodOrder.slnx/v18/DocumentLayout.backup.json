@@ -3,6 +3,14 @@
   "WorkspaceRootPath": "D:\\K24CNT2\\K24CNT2-G01-DT11-DoAn2\\FoodOrder\\",
   "Documents": [
     {
+      "AbsoluteMoniker": "D:0:0:{6AB1F56F-0225-D83C-B88C-11955E242D2D}|FoodOrder.csproj|d:\\k24cnt2\\k24cnt2-g01-dt11-doan2\\foodorder\\views\\menu\\index.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{6AB1F56F-0225-D83C-B88C-11955E242D2D}|FoodOrder.csproj|solutionrelative:views\\menu\\index.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{6AB1F56F-0225-D83C-B88C-11955E242D2D}|FoodOrder.csproj|d:\\k24cnt2\\k24cnt2-g01-dt11-doan2\\foodorder\\services\\menuservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{6AB1F56F-0225-D83C-B88C-11955E242D2D}|FoodOrder.csproj|solutionrelative:services\\menuservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
       "AbsoluteMoniker": "D:0:0:{6AB1F56F-0225-D83C-B88C-11955E242D2D}|FoodOrder.csproj|d:\\k24cnt2\\k24cnt2-g01-dt11-doan2\\foodorder\\areas\\admin\\views\\productimport\\preview.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
       "RelativeMoniker": "D:0:0:{6AB1F56F-0225-D83C-B88C-11955E242D2D}|FoodOrder.csproj|solutionrelative:areas\\admin\\views\\productimport\\preview.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
     },
@@ -13,10 +21,6 @@
     {
       "AbsoluteMoniker": "D:0:0:{6AB1F56F-0225-D83C-B88C-11955E242D2D}|FoodOrder.csproj|d:\\k24cnt2\\k24cnt2-g01-dt11-doan2\\foodorder\\areas\\admin\\controllers\\productimportcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{6AB1F56F-0225-D83C-B88C-11955E242D2D}|FoodOrder.csproj|solutionrelative:areas\\admin\\controllers\\productimportcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{6AB1F56F-0225-D83C-B88C-11955E242D2D}|FoodOrder.csproj|d:\\k24cnt2\\k24cnt2-g01-dt11-doan2\\foodorder\\services\\iproductimportservice.cs \u002B productimportservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{6AB1F56F-0225-D83C-B88C-11955E242D2D}|FoodOrder.csproj|solutionrelative:services\\iproductimportservice.cs \u002B productimportservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{6AB1F56F-0225-D83C-B88C-11955E242D2D}|FoodOrder.csproj|d:\\k24cnt2\\k24cnt2-g01-dt11-doan2\\foodorder\\viewmodels\\productimportviewmodel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
@@ -35,20 +39,12 @@
       "RelativeMoniker": "D:0:0:{6AB1F56F-0225-D83C-B88C-11955E242D2D}|FoodOrder.csproj|solutionrelative:areas\\admin\\controllers\\ingredientscontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{6AB1F56F-0225-D83C-B88C-11955E242D2D}|FoodOrder.csproj|d:\\k24cnt2\\k24cnt2-g01-dt11-doan2\\foodorder\\services\\iingredientservice.cs \u002B ingredientservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{6AB1F56F-0225-D83C-B88C-11955E242D2D}|FoodOrder.csproj|solutionrelative:services\\iingredientservice.cs \u002B ingredientservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
       "AbsoluteMoniker": "D:0:0:{6AB1F56F-0225-D83C-B88C-11955E242D2D}|FoodOrder.csproj|d:\\k24cnt2\\k24cnt2-g01-dt11-doan2\\foodorder\\viewmodels\\ingredientviewmodel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{6AB1F56F-0225-D83C-B88C-11955E242D2D}|FoodOrder.csproj|solutionrelative:viewmodels\\ingredientviewmodel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{6AB1F56F-0225-D83C-B88C-11955E242D2D}|FoodOrder.csproj|d:\\k24cnt2\\k24cnt2-g01-dt11-doan2\\foodorder\\areas\\admin\\views\\products\\_options.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
       "RelativeMoniker": "D:0:0:{6AB1F56F-0225-D83C-B88C-11955E242D2D}|FoodOrder.csproj|solutionrelative:areas\\admin\\views\\products\\_options.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{6AB1F56F-0225-D83C-B88C-11955E242D2D}|FoodOrder.csproj|d:\\k24cnt2\\k24cnt2-g01-dt11-doan2\\foodorder\\services\\iproductoptionservice.cs \u002B productoptionservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{6AB1F56F-0225-D83C-B88C-11955E242D2D}|FoodOrder.csproj|solutionrelative:services\\iproductoptionservice.cs \u002B productoptionservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{6AB1F56F-0225-D83C-B88C-11955E242D2D}|FoodOrder.csproj|d:\\k24cnt2\\k24cnt2-g01-dt11-doan2\\foodorder\\services\\productservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
@@ -61,10 +57,6 @@
     {
       "AbsoluteMoniker": "D:0:0:{6AB1F56F-0225-D83C-B88C-11955E242D2D}|FoodOrder.csproj|d:\\k24cnt2\\k24cnt2-g01-dt11-doan2\\foodorder\\services\\iproductservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{6AB1F56F-0225-D83C-B88C-11955E242D2D}|FoodOrder.csproj|solutionrelative:services\\iproductservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{6AB1F56F-0225-D83C-B88C-11955E242D2D}|FoodOrder.csproj|d:\\k24cnt2\\k24cnt2-g01-dt11-doan2\\foodorder\\areas\\admin\\views\\products\\from.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
-      "RelativeMoniker": "D:0:0:{6AB1F56F-0225-D83C-B88C-11955E242D2D}|FoodOrder.csproj|solutionrelative:areas\\admin\\views\\products\\from.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{6AB1F56F-0225-D83C-B88C-11955E242D2D}|FoodOrder.csproj|d:\\k24cnt2\\k24cnt2-g01-dt11-doan2\\foodorder\\areas\\admin\\views\\products\\_images.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
@@ -95,16 +87,8 @@
       "RelativeMoniker": "D:0:0:{6AB1F56F-0225-D83C-B88C-11955E242D2D}|FoodOrder.csproj|solutionrelative:data\\foodordercontext.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{6AB1F56F-0225-D83C-B88C-11955E242D2D}|FoodOrder.csproj|d:\\k24cnt2\\k24cnt2-g01-dt11-doan2\\foodorder\\services\\menuservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{6AB1F56F-0225-D83C-B88C-11955E242D2D}|FoodOrder.csproj|solutionrelative:services\\menuservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
       "AbsoluteMoniker": "D:0:0:{6AB1F56F-0225-D83C-B88C-11955E242D2D}|FoodOrder.csproj|d:\\k24cnt2\\k24cnt2-g01-dt11-doan2\\foodorder\\views\\menu\\tablenotfound.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
       "RelativeMoniker": "D:0:0:{6AB1F56F-0225-D83C-B88C-11955E242D2D}|FoodOrder.csproj|solutionrelative:views\\menu\\tablenotfound.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{6AB1F56F-0225-D83C-B88C-11955E242D2D}|FoodOrder.csproj|d:\\k24cnt2\\k24cnt2-g01-dt11-doan2\\foodorder\\views\\menu\\index.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
-      "RelativeMoniker": "D:0:0:{6AB1F56F-0225-D83C-B88C-11955E242D2D}|FoodOrder.csproj|solutionrelative:views\\menu\\index.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{6AB1F56F-0225-D83C-B88C-11955E242D2D}|FoodOrder.csproj|d:\\k24cnt2\\k24cnt2-g01-dt11-doan2\\foodorder\\views\\shared\\_layout.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
@@ -137,10 +121,6 @@
     {
       "AbsoluteMoniker": "D:0:0:{6AB1F56F-0225-D83C-B88C-11955E242D2D}|FoodOrder.csproj|d:\\k24cnt2\\k24cnt2-g01-dt11-doan2\\foodorder\\areas\\admin\\views\\tables\\printqr.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
       "RelativeMoniker": "D:0:0:{6AB1F56F-0225-D83C-B88C-11955E242D2D}|FoodOrder.csproj|solutionrelative:areas\\admin\\views\\tables\\printqr.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{6AB1F56F-0225-D83C-B88C-11955E242D2D}|FoodOrder.csproj|d:\\k24cnt2\\k24cnt2-g01-dt11-doan2\\foodorder\\areas\\admin\\views\\tables\\from.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
-      "RelativeMoniker": "D:0:0:{6AB1F56F-0225-D83C-B88C-11955E242D2D}|FoodOrder.csproj|solutionrelative:areas\\admin\\views\\tables\\from.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{6AB1F56F-0225-D83C-B88C-11955E242D2D}|FoodOrder.csproj|d:\\k24cnt2\\k24cnt2-g01-dt11-doan2\\foodorder\\areas\\admin\\views\\_viewimports.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
@@ -179,10 +159,6 @@
       "RelativeMoniker": "D:0:0:{6AB1F56F-0225-D83C-B88C-11955E242D2D}|FoodOrder.csproj|solutionrelative:viewmodels\\categoryviewmodel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{6AB1F56F-0225-D83C-B88C-11955E242D2D}|FoodOrder.csproj|d:\\k24cnt2\\k24cnt2-g01-dt11-doan2\\foodorder\\viewmodels\\accountcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{6AB1F56F-0225-D83C-B88C-11955E242D2D}|FoodOrder.csproj|solutionrelative:viewmodels\\accountcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
       "AbsoluteMoniker": "D:0:0:{6AB1F56F-0225-D83C-B88C-11955E242D2D}|FoodOrder.csproj|d:\\k24cnt2\\k24cnt2-g01-dt11-doan2\\foodorder\\services\\categoryservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{6AB1F56F-0225-D83C-B88C-11955E242D2D}|FoodOrder.csproj|solutionrelative:services\\categoryservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
@@ -205,10 +181,6 @@
     {
       "AbsoluteMoniker": "D:0:0:{6AB1F56F-0225-D83C-B88C-11955E242D2D}|FoodOrder.csproj|d:\\k24cnt2\\k24cnt2-g01-dt11-doan2\\foodorder\\areas\\admin\\views\\home\\index.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
       "RelativeMoniker": "D:0:0:{6AB1F56F-0225-D83C-B88C-11955E242D2D}|FoodOrder.csproj|solutionrelative:areas\\admin\\views\\home\\index.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{6AB1F56F-0225-D83C-B88C-11955E242D2D}|FoodOrder.csproj|d:\\k24cnt2\\k24cnt2-g01-dt11-doan2\\foodorder\\areas\\admin\\views\\categories\\from.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
-      "RelativeMoniker": "D:0:0:{6AB1F56F-0225-D83C-B88C-11955E242D2D}|FoodOrder.csproj|solutionrelative:areas\\admin\\views\\categories\\from.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{6AB1F56F-0225-D83C-B88C-11955E242D2D}|FoodOrder.csproj|d:\\k24cnt2\\k24cnt2-g01-dt11-doan2\\foodorder\\areas\\admin\\controllers\\homecontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
@@ -237,6 +209,34 @@
     {
       "AbsoluteMoniker": "D:0:0:{6AB1F56F-0225-D83C-B88C-11955E242D2D}|FoodOrder.csproj|d:\\k24cnt2\\k24cnt2-g01-dt11-doan2\\foodorder\\appsettings.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}",
       "RelativeMoniker": "D:0:0:{6AB1F56F-0225-D83C-B88C-11955E242D2D}|FoodOrder.csproj|solutionrelative:appsettings.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|D:\\K24CNT2\\K24CNT2-G01-DT11-DoAn2\\FoodOrder\\Services\\IProductImportService.cs \u002B ProductImportService.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:Services\\IProductImportService.cs \u002B ProductImportService.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|D:\\K24CNT2\\K24CNT2-G01-DT11-DoAn2\\FoodOrder\\Services\\IIngredientService.cs \u002B IngredientService.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:Services\\IIngredientService.cs \u002B IngredientService.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|D:\\K24CNT2\\K24CNT2-G01-DT11-DoAn2\\FoodOrder\\Services\\IProductOptionService.cs \u002B ProductOptionService.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:Services\\IProductOptionService.cs \u002B ProductOptionService.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|D:\\K24CNT2\\K24CNT2-G01-DT11-DoAn2\\FoodOrder\\Areas\\Admin\\Views\\Products\\From.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:Areas\\Admin\\Views\\Products\\From.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|D:\\K24CNT2\\K24CNT2-G01-DT11-DoAn2\\FoodOrder\\Areas\\Admin\\Views\\Tables\\From.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:Areas\\Admin\\Views\\Tables\\From.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|D:\\K24CNT2\\K24CNT2-G01-DT11-DoAn2\\FoodOrder\\ViewModels\\AccountController.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:ViewModels\\AccountController.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|D:\\K24CNT2\\K24CNT2-G01-DT11-DoAn2\\FoodOrder\\Areas\\Admin\\Views\\Categories\\From.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:Areas\\Admin\\Views\\Categories\\From.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
     }
   ],
   "DocumentGroupContainers": [
@@ -246,318 +246,11 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 0,
+          "SelectedChildIndex": 1,
           "Children": [
             {
               "$type": "Document",
-              "DocumentIndex": 0,
-              "Title": "Preview.cshtml",
-              "DocumentMoniker": "D:\\K24CNT2\\K24CNT2-G01-DT11-DoAn2\\FoodOrder\\Areas\\Admin\\Views\\ProductImport\\Preview.cshtml",
-              "RelativeDocumentMoniker": "Areas\\Admin\\Views\\ProductImport\\Preview.cshtml",
-              "ToolTip": "D:\\K24CNT2\\K24CNT2-G01-DT11-DoAn2\\FoodOrder\\Areas\\Admin\\Views\\ProductImport\\Preview.cshtml",
-              "RelativeToolTip": "Areas\\Admin\\Views\\ProductImport\\Preview.cshtml",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAQAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
-              "WhenOpened": "2026-11-18T15:39:12.55Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
               "DocumentIndex": 1,
-              "Title": "Index.cshtml",
-              "DocumentMoniker": "D:\\K24CNT2\\K24CNT2-G01-DT11-DoAn2\\FoodOrder\\Areas\\Admin\\Views\\ProductImport\\Index.cshtml",
-              "RelativeDocumentMoniker": "Areas\\Admin\\Views\\ProductImport\\Index.cshtml",
-              "ToolTip": "D:\\K24CNT2\\K24CNT2-G01-DT11-DoAn2\\FoodOrder\\Areas\\Admin\\Views\\ProductImport\\Index.cshtml*",
-              "RelativeToolTip": "Areas\\Admin\\Views\\ProductImport\\Index.cshtml*",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAYAAAAHAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
-              "WhenOpened": "2026-11-18T15:38:27.972Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 2,
-              "Title": "ProductImportController.cs",
-              "DocumentMoniker": "D:\\K24CNT2\\K24CNT2-G01-DT11-DoAn2\\FoodOrder\\Areas\\Admin\\Controllers\\ProductImportController.cs",
-              "RelativeDocumentMoniker": "Areas\\Admin\\Controllers\\ProductImportController.cs",
-              "ToolTip": "D:\\K24CNT2\\K24CNT2-G01-DT11-DoAn2\\FoodOrder\\Areas\\Admin\\Controllers\\ProductImportController.cs*",
-              "RelativeToolTip": "Areas\\Admin\\Controllers\\ProductImportController.cs*",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAoAAAATAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-11-18T15:35:55.034Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 3,
-              "Title": "IProductImportService.cs \u002B ProductImportService.cs",
-              "DocumentMoniker": "D:\\K24CNT2\\K24CNT2-G01-DT11-DoAn2\\FoodOrder\\Services\\IProductImportService.cs \u002B ProductImportService.cs",
-              "RelativeDocumentMoniker": "Services\\IProductImportService.cs \u002B ProductImportService.cs",
-              "ToolTip": "D:\\K24CNT2\\K24CNT2-G01-DT11-DoAn2\\FoodOrder\\Services\\IProductImportService.cs \u002B ProductImportService.cs",
-              "RelativeToolTip": "Services\\IProductImportService.cs \u002B ProductImportService.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAsAAAATAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-11-18T15:34:28.362Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 4,
-              "Title": "ProductImportViewModel.cs",
-              "DocumentMoniker": "D:\\K24CNT2\\K24CNT2-G01-DT11-DoAn2\\FoodOrder\\ViewModels\\ProductImportViewModel.cs",
-              "RelativeDocumentMoniker": "ViewModels\\ProductImportViewModel.cs",
-              "ToolTip": "D:\\K24CNT2\\K24CNT2-G01-DT11-DoAn2\\FoodOrder\\ViewModels\\ProductImportViewModel.cs",
-              "RelativeToolTip": "ViewModels\\ProductImportViewModel.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAATAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-11-18T15:34:00.231Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 5,
-              "Title": "Form.cshtml",
-              "DocumentMoniker": "D:\\K24CNT2\\K24CNT2-G01-DT11-DoAn2\\FoodOrder\\Areas\\Admin\\Views\\Ingredients\\Form.cshtml",
-              "RelativeDocumentMoniker": "Areas\\Admin\\Views\\Ingredients\\Form.cshtml",
-              "ToolTip": "D:\\K24CNT2\\K24CNT2-G01-DT11-DoAn2\\FoodOrder\\Areas\\Admin\\Views\\Ingredients\\Form.cshtml",
-              "RelativeToolTip": "Areas\\Admin\\Views\\Ingredients\\Form.cshtml",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAQAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
-              "WhenOpened": "2026-11-18T15:33:02.742Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 6,
-              "Title": "Index.cshtml",
-              "DocumentMoniker": "D:\\K24CNT2\\K24CNT2-G01-DT11-DoAn2\\FoodOrder\\Areas\\Admin\\Views\\Ingredients\\Index.cshtml",
-              "RelativeDocumentMoniker": "Areas\\Admin\\Views\\Ingredients\\Index.cshtml",
-              "ToolTip": "D:\\K24CNT2\\K24CNT2-G01-DT11-DoAn2\\FoodOrder\\Areas\\Admin\\Views\\Ingredients\\Index.cshtml",
-              "RelativeToolTip": "Areas\\Admin\\Views\\Ingredients\\Index.cshtml",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAVAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
-              "WhenOpened": "2026-11-18T15:32:32.969Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 7,
-              "Title": "IngredientsController.cs",
-              "DocumentMoniker": "D:\\K24CNT2\\K24CNT2-G01-DT11-DoAn2\\FoodOrder\\Areas\\Admin\\Controllers\\IngredientsController.cs",
-              "RelativeDocumentMoniker": "Areas\\Admin\\Controllers\\IngredientsController.cs",
-              "ToolTip": "D:\\K24CNT2\\K24CNT2-G01-DT11-DoAn2\\FoodOrder\\Areas\\Admin\\Controllers\\IngredientsController.cs",
-              "RelativeToolTip": "Areas\\Admin\\Controllers\\IngredientsController.cs",
-              "ViewState": "AgIAAB4AAAAAAAAAAAAowAkAAAATAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-11-18T15:31:38.401Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 8,
-              "Title": "IIngredientService.cs \u002B IngredientService.cs",
-              "DocumentMoniker": "D:\\K24CNT2\\K24CNT2-G01-DT11-DoAn2\\FoodOrder\\Services\\IIngredientService.cs \u002B IngredientService.cs",
-              "RelativeDocumentMoniker": "Services\\IIngredientService.cs \u002B IngredientService.cs",
-              "ToolTip": "D:\\K24CNT2\\K24CNT2-G01-DT11-DoAn2\\FoodOrder\\Services\\IIngredientService.cs \u002B IngredientService.cs",
-              "RelativeToolTip": "Services\\IIngredientService.cs \u002B IngredientService.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAgAAAATAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-11-18T15:30:35.199Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 9,
-              "Title": "IngredientViewModel.cs",
-              "DocumentMoniker": "D:\\K24CNT2\\K24CNT2-G01-DT11-DoAn2\\FoodOrder\\ViewModels\\IngredientViewModel.cs",
-              "RelativeDocumentMoniker": "ViewModels\\IngredientViewModel.cs",
-              "ToolTip": "D:\\K24CNT2\\K24CNT2-G01-DT11-DoAn2\\FoodOrder\\ViewModels\\IngredientViewModel.cs",
-              "RelativeToolTip": "ViewModels\\IngredientViewModel.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAIAAAATAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-11-18T15:29:28.641Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 10,
-              "Title": "_Options.cshtml",
-              "DocumentMoniker": "D:\\K24CNT2\\K24CNT2-G01-DT11-DoAn2\\FoodOrder\\Areas\\Admin\\Views\\Products\\_Options.cshtml",
-              "RelativeDocumentMoniker": "Areas\\Admin\\Views\\Products\\_Options.cshtml",
-              "ToolTip": "D:\\K24CNT2\\K24CNT2-G01-DT11-DoAn2\\FoodOrder\\Areas\\Admin\\Views\\Products\\_Options.cshtml",
-              "RelativeToolTip": "Areas\\Admin\\Views\\Products\\_Options.cshtml",
-              "ViewState": "AgIAACwAAAAAAAAAAAAmwDwAAAAJAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
-              "WhenOpened": "2026-11-18T15:28:37.761Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 11,
-              "Title": "IProductOptionService.cs \u002B ProductOptionService.cs",
-              "DocumentMoniker": "D:\\K24CNT2\\K24CNT2-G01-DT11-DoAn2\\FoodOrder\\Services\\IProductOptionService.cs \u002B ProductOptionService.cs",
-              "RelativeDocumentMoniker": "Services\\IProductOptionService.cs \u002B ProductOptionService.cs",
-              "ToolTip": "D:\\K24CNT2\\K24CNT2-G01-DT11-DoAn2\\FoodOrder\\Services\\IProductOptionService.cs \u002B ProductOptionService.cs",
-              "RelativeToolTip": "Services\\IProductOptionService.cs \u002B ProductOptionService.cs",
-              "ViewState": "AgIAAD8AAAAAAAAAAAAAwEAAAABrAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-11-18T15:23:50.77Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 12,
-              "Title": "ProductService.cs",
-              "DocumentMoniker": "D:\\K24CNT2\\K24CNT2-G01-DT11-DoAn2\\FoodOrder\\Services\\ProductService.cs",
-              "RelativeDocumentMoniker": "Services\\ProductService.cs",
-              "ToolTip": "D:\\K24CNT2\\K24CNT2-G01-DT11-DoAn2\\FoodOrder\\Services\\ProductService.cs",
-              "RelativeToolTip": "Services\\ProductService.cs",
-              "ViewState": "AgIAACEAAAAAAAAAAAAqwGYAAAA5AAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-11-16T16:31:53.745Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 13,
-              "Title": "IProductImageService.cs",
-              "DocumentMoniker": "D:\\K24CNT2\\K24CNT2-G01-DT11-DoAn2\\FoodOrder\\Services\\IProductImageService.cs",
-              "RelativeDocumentMoniker": "Services\\IProductImageService.cs",
-              "ToolTip": "D:\\K24CNT2\\K24CNT2-G01-DT11-DoAn2\\FoodOrder\\Services\\IProductImageService.cs",
-              "RelativeToolTip": "Services\\IProductImageService.cs",
-              "ViewState": "AgIAADYAAAAAAAAAAAAiwAMAAAAPAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-11-18T15:17:46.113Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 14,
-              "Title": "IProductService.cs",
-              "DocumentMoniker": "D:\\K24CNT2\\K24CNT2-G01-DT11-DoAn2\\FoodOrder\\Services\\IProductService.cs",
-              "RelativeDocumentMoniker": "Services\\IProductService.cs",
-              "ToolTip": "D:\\K24CNT2\\K24CNT2-G01-DT11-DoAn2\\FoodOrder\\Services\\IProductService.cs",
-              "RelativeToolTip": "Services\\IProductService.cs",
-              "ViewState": "AgIAAAQAAAAAAAAAAAAiwA0AAAABAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-11-16T16:24:39.818Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 16,
-              "Title": "_Images.cshtml",
-              "DocumentMoniker": "D:\\K24CNT2\\K24CNT2-G01-DT11-DoAn2\\FoodOrder\\Areas\\Admin\\Views\\Products\\_Images.cshtml",
-              "RelativeDocumentMoniker": "Areas\\Admin\\Views\\Products\\_Images.cshtml",
-              "ToolTip": "D:\\K24CNT2\\K24CNT2-G01-DT11-DoAn2\\FoodOrder\\Areas\\Admin\\Views\\Products\\_Images.cshtml",
-              "RelativeToolTip": "Areas\\Admin\\Views\\Products\\_Images.cshtml",
-              "ViewState": "AgIAAA8AAAAAAAAAAAAmwB8AAAAGAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
-              "WhenOpened": "2026-11-18T15:19:33.696Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 15,
-              "Title": "From.cshtml",
-              "DocumentMoniker": "D:\\K24CNT2\\K24CNT2-G01-DT11-DoAn2\\FoodOrder\\Areas\\Admin\\Views\\Products\\From.cshtml",
-              "RelativeDocumentMoniker": "Areas\\Admin\\Views\\Products\\From.cshtml",
-              "ToolTip": "D:\\K24CNT2\\K24CNT2-G01-DT11-DoAn2\\FoodOrder\\Areas\\Admin\\Views\\Products\\From.cshtml",
-              "RelativeToolTip": "Areas\\Admin\\Views\\Products\\From.cshtml",
-              "ViewState": "AgIAABgAAAAAAAAAAAAAACQAAAABAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
-              "WhenOpened": "2026-11-18T15:15:53.838Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 17,
-              "Title": "ProductsController.cs",
-              "DocumentMoniker": "D:\\K24CNT2\\K24CNT2-G01-DT11-DoAn2\\FoodOrder\\Areas\\Admin\\Controllers\\ProductsController.cs",
-              "RelativeDocumentMoniker": "Areas\\Admin\\Controllers\\ProductsController.cs",
-              "ToolTip": "D:\\K24CNT2\\K24CNT2-G01-DT11-DoAn2\\FoodOrder\\Areas\\Admin\\Controllers\\ProductsController.cs",
-              "RelativeToolTip": "Areas\\Admin\\Controllers\\ProductsController.cs",
-              "ViewState": "AgIAAC8AAAAAAAAAAAAQwFwAAABeAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-11-16T16:48:19.823Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 18,
-              "Title": "Index.cshtml",
-              "DocumentMoniker": "D:\\K24CNT2\\K24CNT2-G01-DT11-DoAn2\\FoodOrder\\Areas\\Admin\\Views\\Products\\Index.cshtml",
-              "RelativeDocumentMoniker": "Areas\\Admin\\Views\\Products\\Index.cshtml",
-              "ToolTip": "D:\\K24CNT2\\K24CNT2-G01-DT11-DoAn2\\FoodOrder\\Areas\\Admin\\Views\\Products\\Index.cshtml",
-              "RelativeToolTip": "Areas\\Admin\\Views\\Products\\Index.cshtml",
-              "ViewState": "AgIAAB4AAAAAAAAAAAAAAFIAAAAJAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
-              "WhenOpened": "2026-11-18T15:14:54.127Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 19,
-              "Title": "ProductViewModel.cs",
-              "DocumentMoniker": "D:\\K24CNT2\\K24CNT2-G01-DT11-DoAn2\\FoodOrder\\ViewModels\\ProductViewModel.cs",
-              "RelativeDocumentMoniker": "ViewModels\\ProductViewModel.cs",
-              "ToolTip": "D:\\K24CNT2\\K24CNT2-G01-DT11-DoAn2\\FoodOrder\\ViewModels\\ProductViewModel.cs",
-              "RelativeToolTip": "ViewModels\\ProductViewModel.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAADQAAAAuAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-11-16T15:57:55.819Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 20,
-              "Title": "StatusConstants.cs",
-              "DocumentMoniker": "D:\\K24CNT2\\K24CNT2-G01-DT11-DoAn2\\FoodOrder\\Models\\StatusConstants.cs",
-              "RelativeDocumentMoniker": "Models\\StatusConstants.cs",
-              "ToolTip": "D:\\K24CNT2\\K24CNT2-G01-DT11-DoAn2\\FoodOrder\\Models\\StatusConstants.cs",
-              "RelativeToolTip": "Models\\StatusConstants.cs",
-              "ViewState": "AgIAACAAAAAAAAAAAAAqwCUAAAA6AAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-11-16T15:44:15.232Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 25,
-              "Title": "Index.cshtml",
-              "DocumentMoniker": "D:\\K24CNT2\\K24CNT2-G01-DT11-DoAn2\\FoodOrder\\Views\\Menu\\Index.cshtml",
-              "RelativeDocumentMoniker": "Views\\Menu\\Index.cshtml",
-              "ToolTip": "D:\\K24CNT2\\K24CNT2-G01-DT11-DoAn2\\FoodOrder\\Views\\Menu\\Index.cshtml",
-              "RelativeToolTip": "Views\\Menu\\Index.cshtml",
-              "ViewState": "AgIAADsAAAAAAAAAAAAowEEAAAAWAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
-              "WhenOpened": "2026-11-10T17:27:21.68Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 21,
-              "Title": "_MenuLayout.cshtml",
-              "DocumentMoniker": "D:\\K24CNT2\\K24CNT2-G01-DT11-DoAn2\\FoodOrder\\Views\\Shared\\_MenuLayout.cshtml",
-              "RelativeDocumentMoniker": "Views\\Shared\\_MenuLayout.cshtml",
-              "ToolTip": "D:\\K24CNT2\\K24CNT2-G01-DT11-DoAn2\\FoodOrder\\Views\\Shared\\_MenuLayout.cshtml",
-              "RelativeToolTip": "Views\\Shared\\_MenuLayout.cshtml",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAA4AAAAHAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
-              "WhenOpened": "2026-11-10T17:25:08.205Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 28,
-              "Title": "MenuController.cs",
-              "DocumentMoniker": "D:\\K24CNT2\\K24CNT2-G01-DT11-DoAn2\\FoodOrder\\Controllers\\MenuController.cs",
-              "RelativeDocumentMoniker": "Controllers\\MenuController.cs",
-              "ToolTip": "D:\\K24CNT2\\K24CNT2-G01-DT11-DoAn2\\FoodOrder\\Controllers\\MenuController.cs",
-              "RelativeToolTip": "Controllers\\MenuController.cs",
-              "ViewState": "AgIAACgAAAAAAAAAAAAwwDoAAAABAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-11-10T17:21:04.092Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 23,
               "Title": "MenuService.cs",
               "DocumentMoniker": "D:\\K24CNT2\\K24CNT2-G01-DT11-DoAn2\\FoodOrder\\Services\\MenuService.cs",
               "RelativeDocumentMoniker": "Services\\MenuService.cs",
@@ -569,7 +262,296 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 29,
+              "DocumentIndex": 0,
+              "Title": "Index.cshtml",
+              "DocumentMoniker": "D:\\K24CNT2\\K24CNT2-G01-DT11-DoAn2\\FoodOrder\\Views\\Menu\\Index.cshtml",
+              "RelativeDocumentMoniker": "Views\\Menu\\Index.cshtml",
+              "ToolTip": "D:\\K24CNT2\\K24CNT2-G01-DT11-DoAn2\\FoodOrder\\Views\\Menu\\Index.cshtml",
+              "RelativeToolTip": "Views\\Menu\\Index.cshtml",
+              "ViewState": "AgIAADgAAAAAAAAAAAAowEEAAAAWAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2026-11-10T17:27:21.68Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 2,
+              "Title": "Preview.cshtml",
+              "DocumentMoniker": "D:\\K24CNT2\\K24CNT2-G01-DT11-DoAn2\\FoodOrder\\Areas\\Admin\\Views\\ProductImport\\Preview.cshtml",
+              "RelativeDocumentMoniker": "Areas\\Admin\\Views\\ProductImport\\Preview.cshtml",
+              "ToolTip": "D:\\K24CNT2\\K24CNT2-G01-DT11-DoAn2\\FoodOrder\\Areas\\Admin\\Views\\ProductImport\\Preview.cshtml",
+              "RelativeToolTip": "Areas\\Admin\\Views\\ProductImport\\Preview.cshtml",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAQAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2026-11-18T15:39:12.55Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 3,
+              "Title": "Index.cshtml",
+              "DocumentMoniker": "D:\\K24CNT2\\K24CNT2-G01-DT11-DoAn2\\FoodOrder\\Areas\\Admin\\Views\\ProductImport\\Index.cshtml",
+              "RelativeDocumentMoniker": "Areas\\Admin\\Views\\ProductImport\\Index.cshtml",
+              "ToolTip": "D:\\K24CNT2\\K24CNT2-G01-DT11-DoAn2\\FoodOrder\\Areas\\Admin\\Views\\ProductImport\\Index.cshtml",
+              "RelativeToolTip": "Areas\\Admin\\Views\\ProductImport\\Index.cshtml",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAYAAAAHAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2026-11-18T15:38:27.972Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 4,
+              "Title": "ProductImportController.cs",
+              "DocumentMoniker": "D:\\K24CNT2\\K24CNT2-G01-DT11-DoAn2\\FoodOrder\\Areas\\Admin\\Controllers\\ProductImportController.cs",
+              "RelativeDocumentMoniker": "Areas\\Admin\\Controllers\\ProductImportController.cs",
+              "ToolTip": "D:\\K24CNT2\\K24CNT2-G01-DT11-DoAn2\\FoodOrder\\Areas\\Admin\\Controllers\\ProductImportController.cs",
+              "RelativeToolTip": "Areas\\Admin\\Controllers\\ProductImportController.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAoAAAATAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-11-18T15:35:55.034Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 52,
+              "Title": "IProductImportService.cs \u002B ProductImportService.cs",
+              "DocumentMoniker": "D:\\K24CNT2\\K24CNT2-G01-DT11-DoAn2\\FoodOrder\\Services\\IProductImportService.cs \u002B ProductImportService.cs",
+              "RelativeDocumentMoniker": "Services\\IProductImportService.cs \u002B ProductImportService.cs",
+              "ToolTip": "D:\\K24CNT2\\K24CNT2-G01-DT11-DoAn2\\FoodOrder\\Services\\IProductImportService.cs \u002B ProductImportService.cs",
+              "RelativeToolTip": "Services\\IProductImportService.cs \u002B ProductImportService.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAsAAAATAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-11-18T15:34:28.362Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 5,
+              "Title": "ProductImportViewModel.cs",
+              "DocumentMoniker": "D:\\K24CNT2\\K24CNT2-G01-DT11-DoAn2\\FoodOrder\\ViewModels\\ProductImportViewModel.cs",
+              "RelativeDocumentMoniker": "ViewModels\\ProductImportViewModel.cs",
+              "ToolTip": "D:\\K24CNT2\\K24CNT2-G01-DT11-DoAn2\\FoodOrder\\ViewModels\\ProductImportViewModel.cs",
+              "RelativeToolTip": "ViewModels\\ProductImportViewModel.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAATAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-11-18T15:34:00.231Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 6,
+              "Title": "Form.cshtml",
+              "DocumentMoniker": "D:\\K24CNT2\\K24CNT2-G01-DT11-DoAn2\\FoodOrder\\Areas\\Admin\\Views\\Ingredients\\Form.cshtml",
+              "RelativeDocumentMoniker": "Areas\\Admin\\Views\\Ingredients\\Form.cshtml",
+              "ToolTip": "D:\\K24CNT2\\K24CNT2-G01-DT11-DoAn2\\FoodOrder\\Areas\\Admin\\Views\\Ingredients\\Form.cshtml",
+              "RelativeToolTip": "Areas\\Admin\\Views\\Ingredients\\Form.cshtml",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAQAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2026-11-18T15:33:02.742Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 7,
+              "Title": "Index.cshtml",
+              "DocumentMoniker": "D:\\K24CNT2\\K24CNT2-G01-DT11-DoAn2\\FoodOrder\\Areas\\Admin\\Views\\Ingredients\\Index.cshtml",
+              "RelativeDocumentMoniker": "Areas\\Admin\\Views\\Ingredients\\Index.cshtml",
+              "ToolTip": "D:\\K24CNT2\\K24CNT2-G01-DT11-DoAn2\\FoodOrder\\Areas\\Admin\\Views\\Ingredients\\Index.cshtml",
+              "RelativeToolTip": "Areas\\Admin\\Views\\Ingredients\\Index.cshtml",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAVAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2026-11-18T15:32:32.969Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 8,
+              "Title": "IngredientsController.cs",
+              "DocumentMoniker": "D:\\K24CNT2\\K24CNT2-G01-DT11-DoAn2\\FoodOrder\\Areas\\Admin\\Controllers\\IngredientsController.cs",
+              "RelativeDocumentMoniker": "Areas\\Admin\\Controllers\\IngredientsController.cs",
+              "ToolTip": "D:\\K24CNT2\\K24CNT2-G01-DT11-DoAn2\\FoodOrder\\Areas\\Admin\\Controllers\\IngredientsController.cs",
+              "RelativeToolTip": "Areas\\Admin\\Controllers\\IngredientsController.cs",
+              "ViewState": "AgIAAB4AAAAAAAAAAAAowAkAAAATAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-11-18T15:31:38.401Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 53,
+              "Title": "IIngredientService.cs \u002B IngredientService.cs",
+              "DocumentMoniker": "D:\\K24CNT2\\K24CNT2-G01-DT11-DoAn2\\FoodOrder\\Services\\IIngredientService.cs \u002B IngredientService.cs",
+              "RelativeDocumentMoniker": "Services\\IIngredientService.cs \u002B IngredientService.cs",
+              "ToolTip": "D:\\K24CNT2\\K24CNT2-G01-DT11-DoAn2\\FoodOrder\\Services\\IIngredientService.cs \u002B IngredientService.cs",
+              "RelativeToolTip": "Services\\IIngredientService.cs \u002B IngredientService.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAgAAAATAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-11-18T15:30:35.199Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 9,
+              "Title": "IngredientViewModel.cs",
+              "DocumentMoniker": "D:\\K24CNT2\\K24CNT2-G01-DT11-DoAn2\\FoodOrder\\ViewModels\\IngredientViewModel.cs",
+              "RelativeDocumentMoniker": "ViewModels\\IngredientViewModel.cs",
+              "ToolTip": "D:\\K24CNT2\\K24CNT2-G01-DT11-DoAn2\\FoodOrder\\ViewModels\\IngredientViewModel.cs",
+              "RelativeToolTip": "ViewModels\\IngredientViewModel.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAIAAAATAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-11-18T15:29:28.641Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 10,
+              "Title": "_Options.cshtml",
+              "DocumentMoniker": "D:\\K24CNT2\\K24CNT2-G01-DT11-DoAn2\\FoodOrder\\Areas\\Admin\\Views\\Products\\_Options.cshtml",
+              "RelativeDocumentMoniker": "Areas\\Admin\\Views\\Products\\_Options.cshtml",
+              "ToolTip": "D:\\K24CNT2\\K24CNT2-G01-DT11-DoAn2\\FoodOrder\\Areas\\Admin\\Views\\Products\\_Options.cshtml",
+              "RelativeToolTip": "Areas\\Admin\\Views\\Products\\_Options.cshtml",
+              "ViewState": "AgIAACwAAAAAAAAAAAAmwDwAAAAJAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2026-11-18T15:28:37.761Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 54,
+              "Title": "IProductOptionService.cs \u002B ProductOptionService.cs",
+              "DocumentMoniker": "D:\\K24CNT2\\K24CNT2-G01-DT11-DoAn2\\FoodOrder\\Services\\IProductOptionService.cs \u002B ProductOptionService.cs",
+              "RelativeDocumentMoniker": "Services\\IProductOptionService.cs \u002B ProductOptionService.cs",
+              "ToolTip": "D:\\K24CNT2\\K24CNT2-G01-DT11-DoAn2\\FoodOrder\\Services\\IProductOptionService.cs \u002B ProductOptionService.cs",
+              "RelativeToolTip": "Services\\IProductOptionService.cs \u002B ProductOptionService.cs",
+              "ViewState": "AgIAAD8AAAAAAAAAAAAAwEAAAABrAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-11-18T15:23:50.77Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 11,
+              "Title": "ProductService.cs",
+              "DocumentMoniker": "D:\\K24CNT2\\K24CNT2-G01-DT11-DoAn2\\FoodOrder\\Services\\ProductService.cs",
+              "RelativeDocumentMoniker": "Services\\ProductService.cs",
+              "ToolTip": "D:\\K24CNT2\\K24CNT2-G01-DT11-DoAn2\\FoodOrder\\Services\\ProductService.cs",
+              "RelativeToolTip": "Services\\ProductService.cs",
+              "ViewState": "AgIAACEAAAAAAAAAAAAqwGYAAAA5AAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-11-16T16:31:53.745Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 12,
+              "Title": "IProductImageService.cs",
+              "DocumentMoniker": "D:\\K24CNT2\\K24CNT2-G01-DT11-DoAn2\\FoodOrder\\Services\\IProductImageService.cs",
+              "RelativeDocumentMoniker": "Services\\IProductImageService.cs",
+              "ToolTip": "D:\\K24CNT2\\K24CNT2-G01-DT11-DoAn2\\FoodOrder\\Services\\IProductImageService.cs",
+              "RelativeToolTip": "Services\\IProductImageService.cs",
+              "ViewState": "AgIAADYAAAAAAAAAAAAiwAMAAAAPAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-11-18T15:17:46.113Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 13,
+              "Title": "IProductService.cs",
+              "DocumentMoniker": "D:\\K24CNT2\\K24CNT2-G01-DT11-DoAn2\\FoodOrder\\Services\\IProductService.cs",
+              "RelativeDocumentMoniker": "Services\\IProductService.cs",
+              "ToolTip": "D:\\K24CNT2\\K24CNT2-G01-DT11-DoAn2\\FoodOrder\\Services\\IProductService.cs",
+              "RelativeToolTip": "Services\\IProductService.cs",
+              "ViewState": "AgIAAAQAAAAAAAAAAAAiwA0AAAABAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-11-16T16:24:39.818Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 14,
+              "Title": "_Images.cshtml",
+              "DocumentMoniker": "D:\\K24CNT2\\K24CNT2-G01-DT11-DoAn2\\FoodOrder\\Areas\\Admin\\Views\\Products\\_Images.cshtml",
+              "RelativeDocumentMoniker": "Areas\\Admin\\Views\\Products\\_Images.cshtml",
+              "ToolTip": "D:\\K24CNT2\\K24CNT2-G01-DT11-DoAn2\\FoodOrder\\Areas\\Admin\\Views\\Products\\_Images.cshtml",
+              "RelativeToolTip": "Areas\\Admin\\Views\\Products\\_Images.cshtml",
+              "ViewState": "AgIAAA8AAAAAAAAAAAAmwB8AAAAGAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2026-11-18T15:19:33.696Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 55,
+              "Title": "From.cshtml",
+              "DocumentMoniker": "D:\\K24CNT2\\K24CNT2-G01-DT11-DoAn2\\FoodOrder\\Areas\\Admin\\Views\\Products\\From.cshtml",
+              "RelativeDocumentMoniker": "Areas\\Admin\\Views\\Products\\From.cshtml",
+              "ToolTip": "D:\\K24CNT2\\K24CNT2-G01-DT11-DoAn2\\FoodOrder\\Areas\\Admin\\Views\\Products\\From.cshtml",
+              "RelativeToolTip": "Areas\\Admin\\Views\\Products\\From.cshtml",
+              "ViewState": "AgIAABgAAAAAAAAAAAAAACQAAAABAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2026-11-18T15:15:53.838Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 15,
+              "Title": "ProductsController.cs",
+              "DocumentMoniker": "D:\\K24CNT2\\K24CNT2-G01-DT11-DoAn2\\FoodOrder\\Areas\\Admin\\Controllers\\ProductsController.cs",
+              "RelativeDocumentMoniker": "Areas\\Admin\\Controllers\\ProductsController.cs",
+              "ToolTip": "D:\\K24CNT2\\K24CNT2-G01-DT11-DoAn2\\FoodOrder\\Areas\\Admin\\Controllers\\ProductsController.cs",
+              "RelativeToolTip": "Areas\\Admin\\Controllers\\ProductsController.cs",
+              "ViewState": "AgIAAC8AAAAAAAAAAAAQwFwAAABeAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-11-16T16:48:19.823Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 16,
+              "Title": "Index.cshtml",
+              "DocumentMoniker": "D:\\K24CNT2\\K24CNT2-G01-DT11-DoAn2\\FoodOrder\\Areas\\Admin\\Views\\Products\\Index.cshtml",
+              "RelativeDocumentMoniker": "Areas\\Admin\\Views\\Products\\Index.cshtml",
+              "ToolTip": "D:\\K24CNT2\\K24CNT2-G01-DT11-DoAn2\\FoodOrder\\Areas\\Admin\\Views\\Products\\Index.cshtml",
+              "RelativeToolTip": "Areas\\Admin\\Views\\Products\\Index.cshtml",
+              "ViewState": "AgIAAB4AAAAAAAAAAAAAAFIAAAAJAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2026-11-18T15:14:54.127Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 17,
+              "Title": "ProductViewModel.cs",
+              "DocumentMoniker": "D:\\K24CNT2\\K24CNT2-G01-DT11-DoAn2\\FoodOrder\\ViewModels\\ProductViewModel.cs",
+              "RelativeDocumentMoniker": "ViewModels\\ProductViewModel.cs",
+              "ToolTip": "D:\\K24CNT2\\K24CNT2-G01-DT11-DoAn2\\FoodOrder\\ViewModels\\ProductViewModel.cs",
+              "RelativeToolTip": "ViewModels\\ProductViewModel.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAADQAAAAuAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-11-16T15:57:55.819Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 18,
+              "Title": "StatusConstants.cs",
+              "DocumentMoniker": "D:\\K24CNT2\\K24CNT2-G01-DT11-DoAn2\\FoodOrder\\Models\\StatusConstants.cs",
+              "RelativeDocumentMoniker": "Models\\StatusConstants.cs",
+              "ToolTip": "D:\\K24CNT2\\K24CNT2-G01-DT11-DoAn2\\FoodOrder\\Models\\StatusConstants.cs",
+              "RelativeToolTip": "Models\\StatusConstants.cs",
+              "ViewState": "AgIAACAAAAAAAAAAAAAqwCUAAAA6AAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-11-16T15:44:15.232Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 19,
+              "Title": "_MenuLayout.cshtml",
+              "DocumentMoniker": "D:\\K24CNT2\\K24CNT2-G01-DT11-DoAn2\\FoodOrder\\Views\\Shared\\_MenuLayout.cshtml",
+              "RelativeDocumentMoniker": "Views\\Shared\\_MenuLayout.cshtml",
+              "ToolTip": "D:\\K24CNT2\\K24CNT2-G01-DT11-DoAn2\\FoodOrder\\Views\\Shared\\_MenuLayout.cshtml",
+              "RelativeToolTip": "Views\\Shared\\_MenuLayout.cshtml",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAA4AAAAHAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2026-11-10T17:25:08.205Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 24,
+              "Title": "MenuController.cs",
+              "DocumentMoniker": "D:\\K24CNT2\\K24CNT2-G01-DT11-DoAn2\\FoodOrder\\Controllers\\MenuController.cs",
+              "RelativeDocumentMoniker": "Controllers\\MenuController.cs",
+              "ToolTip": "D:\\K24CNT2\\K24CNT2-G01-DT11-DoAn2\\FoodOrder\\Controllers\\MenuController.cs",
+              "RelativeToolTip": "Controllers\\MenuController.cs",
+              "ViewState": "AgIAACgAAAAAAAAAAAAwwDoAAAABAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-11-10T17:21:04.092Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 25,
               "Title": "MoneyHelper.cs",
               "DocumentMoniker": "D:\\K24CNT2\\K24CNT2-G01-DT11-DoAn2\\FoodOrder\\Helpers\\MoneyHelper.cs",
               "RelativeDocumentMoniker": "Helpers\\MoneyHelper.cs",
@@ -581,7 +563,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 22,
+              "DocumentIndex": 20,
               "Title": "FoodOrderContext.cs",
               "DocumentMoniker": "D:\\K24CNT2\\K24CNT2-G01-DT11-DoAn2\\FoodOrder\\Data\\FoodOrderContext.cs",
               "RelativeDocumentMoniker": "Data\\FoodOrderContext.cs",
@@ -593,7 +575,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 24,
+              "DocumentIndex": 21,
               "Title": "TableNotFound.cshtml",
               "DocumentMoniker": "D:\\K24CNT2\\K24CNT2-G01-DT11-DoAn2\\FoodOrder\\Views\\Menu\\TableNotFound.cshtml",
               "RelativeDocumentMoniker": "Views\\Menu\\TableNotFound.cshtml",
@@ -605,7 +587,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 30,
+              "DocumentIndex": 26,
               "Title": "MenuViewModels.cs",
               "DocumentMoniker": "D:\\K24CNT2\\K24CNT2-G01-DT11-DoAn2\\FoodOrder\\ViewModels\\MenuViewModels.cs",
               "RelativeDocumentMoniker": "ViewModels\\MenuViewModels.cs",
@@ -617,7 +599,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 27,
+              "DocumentIndex": 23,
               "Title": "Program.cs",
               "DocumentMoniker": "D:\\K24CNT2\\K24CNT2-G01-DT11-DoAn2\\FoodOrder\\Program.cs",
               "RelativeDocumentMoniker": "Program.cs",
@@ -629,7 +611,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 26,
+              "DocumentIndex": 22,
               "Title": "_Layout.cshtml",
               "DocumentMoniker": "D:\\K24CNT2\\K24CNT2-G01-DT11-DoAn2\\FoodOrder\\Views\\Shared\\_Layout.cshtml",
               "RelativeDocumentMoniker": "Views\\Shared\\_Layout.cshtml",
@@ -641,7 +623,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 31,
+              "DocumentIndex": 27,
               "Title": "TableSessionService.cs",
               "DocumentMoniker": "D:\\K24CNT2\\K24CNT2-G01-DT11-DoAn2\\FoodOrder\\Services\\TableSessionService.cs",
               "RelativeDocumentMoniker": "Services\\TableSessionService.cs",
@@ -653,7 +635,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 33,
+              "DocumentIndex": 29,
               "Title": "PrintQr.cshtml",
               "DocumentMoniker": "D:\\K24CNT2\\K24CNT2-G01-DT11-DoAn2\\FoodOrder\\Areas\\Admin\\Views\\Tables\\PrintQr.cshtml",
               "RelativeDocumentMoniker": "Areas\\Admin\\Views\\Tables\\PrintQr.cshtml",
@@ -665,7 +647,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 36,
+              "DocumentIndex": 31,
               "Title": "Index.cshtml",
               "DocumentMoniker": "D:\\K24CNT2\\K24CNT2-G01-DT11-DoAn2\\FoodOrder\\Areas\\Admin\\Views\\Tables\\Index.cshtml",
               "RelativeDocumentMoniker": "Areas\\Admin\\Views\\Tables\\Index.cshtml",
@@ -677,7 +659,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 34,
+              "DocumentIndex": 56,
               "Title": "From.cshtml",
               "DocumentMoniker": "D:\\K24CNT2\\K24CNT2-G01-DT11-DoAn2\\FoodOrder\\Areas\\Admin\\Views\\Tables\\From.cshtml",
               "RelativeDocumentMoniker": "Areas\\Admin\\Views\\Tables\\From.cshtml",
@@ -689,7 +671,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 38,
+              "DocumentIndex": 33,
               "Title": "TablesController.cs",
               "DocumentMoniker": "D:\\K24CNT2\\K24CNT2-G01-DT11-DoAn2\\FoodOrder\\Areas\\Admin\\Controllers\\TablesController.cs",
               "RelativeDocumentMoniker": "Areas\\Admin\\Controllers\\TablesController.cs",
@@ -701,7 +683,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 35,
+              "DocumentIndex": 30,
               "Title": "_ViewImports.cshtml",
               "DocumentMoniker": "D:\\K24CNT2\\K24CNT2-G01-DT11-DoAn2\\FoodOrder\\Areas\\Admin\\Views\\_ViewImports.cshtml",
               "RelativeDocumentMoniker": "Areas\\Admin\\Views\\_ViewImports.cshtml",
@@ -713,7 +695,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 32,
+              "DocumentIndex": 28,
               "Title": "TableService.cs",
               "DocumentMoniker": "D:\\K24CNT2\\K24CNT2-G01-DT11-DoAn2\\FoodOrder\\Services\\TableService.cs",
               "RelativeDocumentMoniker": "Services\\TableService.cs",
@@ -725,7 +707,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 39,
+              "DocumentIndex": 34,
               "Title": "Index.cshtml",
               "DocumentMoniker": "D:\\K24CNT2\\K24CNT2-G01-DT11-DoAn2\\FoodOrder\\Views\\Account\\Index.cshtml",
               "RelativeDocumentMoniker": "Views\\Account\\Index.cshtml",
@@ -737,7 +719,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 40,
+              "DocumentIndex": 35,
               "Title": "AccessDenied.cshtml",
               "DocumentMoniker": "D:\\K24CNT2\\K24CNT2-G01-DT11-DoAn2\\FoodOrder\\Views\\Account\\AccessDenied.cshtml",
               "RelativeDocumentMoniker": "Views\\Account\\AccessDenied.cshtml",
@@ -749,7 +731,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 41,
+              "DocumentIndex": 36,
               "Title": "TableViewModel.cs",
               "DocumentMoniker": "D:\\K24CNT2\\K24CNT2-G01-DT11-DoAn2\\FoodOrder\\ViewModels\\TableViewModel.cs",
               "RelativeDocumentMoniker": "ViewModels\\TableViewModel.cs",
@@ -761,7 +743,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 37,
+              "DocumentIndex": 32,
               "Title": "Index.cshtml",
               "DocumentMoniker": "D:\\K24CNT2\\K24CNT2-G01-DT11-DoAn2\\FoodOrder\\Areas\\Admin\\Views\\Categories\\Index.cshtml",
               "RelativeDocumentMoniker": "Areas\\Admin\\Views\\Categories\\Index.cshtml",
@@ -773,7 +755,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 42,
+              "DocumentIndex": 37,
               "Title": "LoginViewModel.cs",
               "DocumentMoniker": "D:\\K24CNT2\\K24CNT2-G01-DT11-DoAn2\\FoodOrder\\ViewModels\\LoginViewModel.cs",
               "RelativeDocumentMoniker": "ViewModels\\LoginViewModel.cs",
@@ -785,7 +767,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 43,
+              "DocumentIndex": 38,
               "Title": "CategoryViewModel.cs",
               "DocumentMoniker": "D:\\K24CNT2\\K24CNT2-G01-DT11-DoAn2\\FoodOrder\\ViewModels\\CategoryViewModel.cs",
               "RelativeDocumentMoniker": "ViewModels\\CategoryViewModel.cs",
@@ -797,7 +779,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 44,
+              "DocumentIndex": 57,
               "Title": "AccountController.cs",
               "DocumentMoniker": "D:\\K24CNT2\\K24CNT2-G01-DT11-DoAn2\\FoodOrder\\ViewModels\\AccountController.cs",
               "RelativeDocumentMoniker": "ViewModels\\AccountController.cs",
@@ -809,7 +791,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 45,
+              "DocumentIndex": 39,
               "Title": "CategoryService.cs",
               "DocumentMoniker": "D:\\K24CNT2\\K24CNT2-G01-DT11-DoAn2\\FoodOrder\\Services\\CategoryService.cs",
               "RelativeDocumentMoniker": "Services\\CategoryService.cs",
@@ -821,7 +803,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 46,
+              "DocumentIndex": 40,
               "Title": "AppRoles.cs",
               "DocumentMoniker": "D:\\K24CNT2\\K24CNT2-G01-DT11-DoAn2\\FoodOrder\\Models\\AppRoles.cs",
               "RelativeDocumentMoniker": "Models\\AppRoles.cs",
@@ -833,7 +815,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 47,
+              "DocumentIndex": 41,
               "Title": "ApplicationUser.cs",
               "DocumentMoniker": "D:\\K24CNT2\\K24CNT2-G01-DT11-DoAn2\\FoodOrder\\Models\\ApplicationUser.cs",
               "RelativeDocumentMoniker": "Models\\ApplicationUser.cs",
@@ -845,7 +827,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 48,
+              "DocumentIndex": 42,
               "Title": "SlugHelper.cs",
               "DocumentMoniker": "D:\\K24CNT2\\K24CNT2-G01-DT11-DoAn2\\FoodOrder\\Helpers\\SlugHelper.cs",
               "RelativeDocumentMoniker": "Helpers\\SlugHelper.cs",
@@ -857,7 +839,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 49,
+              "DocumentIndex": 43,
               "Title": "_ViewStart.cshtml",
               "DocumentMoniker": "D:\\K24CNT2\\K24CNT2-G01-DT11-DoAn2\\FoodOrder\\Areas\\Admin\\Views\\_ViewStart.cshtml",
               "RelativeDocumentMoniker": "Areas\\Admin\\Views\\_ViewStart.cshtml",
@@ -869,7 +851,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 50,
+              "DocumentIndex": 44,
               "Title": "Index.cshtml",
               "DocumentMoniker": "D:\\K24CNT2\\K24CNT2-G01-DT11-DoAn2\\FoodOrder\\Areas\\Admin\\Views\\Home\\Index.cshtml",
               "RelativeDocumentMoniker": "Areas\\Admin\\Views\\Home\\Index.cshtml",
@@ -881,7 +863,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 51,
+              "DocumentIndex": 58,
               "Title": "From.cshtml",
               "DocumentMoniker": "D:\\K24CNT2\\K24CNT2-G01-DT11-DoAn2\\FoodOrder\\Areas\\Admin\\Views\\Categories\\From.cshtml",
               "RelativeDocumentMoniker": "Areas\\Admin\\Views\\Categories\\From.cshtml",
@@ -893,7 +875,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 52,
+              "DocumentIndex": 45,
               "Title": "HomeController.cs",
               "DocumentMoniker": "D:\\K24CNT2\\K24CNT2-G01-DT11-DoAn2\\FoodOrder\\Areas\\Admin\\Controllers\\HomeController.cs",
               "RelativeDocumentMoniker": "Areas\\Admin\\Controllers\\HomeController.cs",
@@ -905,7 +887,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 53,
+              "DocumentIndex": 46,
               "Title": "CategoriesController.cs",
               "DocumentMoniker": "D:\\K24CNT2\\K24CNT2-G01-DT11-DoAn2\\FoodOrder\\Areas\\Admin\\Controllers\\CategoriesController.cs",
               "RelativeDocumentMoniker": "Areas\\Admin\\Controllers\\CategoriesController.cs",
@@ -917,7 +899,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 54,
+              "DocumentIndex": 47,
               "Title": "TableStatus.cs",
               "DocumentMoniker": "D:\\K24CNT2\\K24CNT2-G01-DT11-DoAn2\\FoodOrder\\Models\\TableStatus.cs",
               "RelativeDocumentMoniker": "Models\\TableStatus.cs",
@@ -929,7 +911,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 55,
+              "DocumentIndex": 48,
               "Title": "FoodOrder.csproj",
               "DocumentMoniker": "D:\\K24CNT2\\K24CNT2-G01-DT11-DoAn2\\FoodOrder\\FoodOrder.csproj",
               "RelativeDocumentMoniker": "FoodOrder.csproj",
@@ -941,7 +923,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 56,
+              "DocumentIndex": 49,
               "Title": "Ingredient.cs",
               "DocumentMoniker": "D:\\K24CNT2\\K24CNT2-G01-DT11-DoAn2\\FoodOrder\\Models\\Ingredient.cs",
               "RelativeDocumentMoniker": "Models\\Ingredient.cs",
@@ -953,7 +935,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 57,
+              "DocumentIndex": 50,
               "Title": "Category.cs",
               "DocumentMoniker": "D:\\K24CNT2\\K24CNT2-G01-DT11-DoAn2\\FoodOrder\\Models\\Category.cs",
               "RelativeDocumentMoniker": "Models\\Category.cs",
@@ -965,7 +947,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 58,
+              "DocumentIndex": 51,
               "Title": "appsettings.json",
               "DocumentMoniker": "D:\\K24CNT2\\K24CNT2-G01-DT11-DoAn2\\FoodOrder\\appsettings.json",
               "RelativeDocumentMoniker": "appsettings.json",

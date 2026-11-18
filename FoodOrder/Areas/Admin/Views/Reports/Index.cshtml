@@ -1,0 +1,25 @@
+@model FoodOrder.ViewModels.DashboardViewModel
+@{
+    ViewData["Title"] = "Báo cáo doanh thu";
+}
+
+<h4 class="mb-3">Báo cáo doanh thu</h4>
+
+<form method="get" class="row g-2 align-items-end mb-4">
+    <div class="col-auto">
+        <label class="form-label" for="from">Từ ngày</label>
+        <input id="from" type="date" name="from" value="@Model.From.ToString("yyyy-MM-dd")" class="form-control" />
+    </div>
+    <div class="col-auto">
+        <label class="form-label" for="to">Đến ngày</label>
+        <input id="to" type="date" name="to" value="@Model.To.ToString("yyyy-MM-dd")" class="form-control" />
+    </div>
+    <div class="col-auto">
+        <button type="submit" class="btn btn-primary">Xem báo cáo</button>
+    </div>
+    <div class="col-auto">
+        <span class="text-muted small">Tối đa 366 ngày mỗi lần xem.</span>
+    </div>
+</form>
+
+<partial name="_Dashboard" model="Model" />

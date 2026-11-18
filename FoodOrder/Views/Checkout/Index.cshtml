@@ -1,0 +1,98 @@
+@model FoodOrder.ViewModels.CartPageViewModel
+@{
+    ViewData["Title"] = "Xác nhận đặt món";
+    Layout = "_MenuLayout";
+    var hasGateway = ViewData["HasGateway"] as bool? ?? false;
+}
+
+<h4 class="mb-1">Xác nhận đặt món</h4>
+<div class="text-muted mb-3">Bàn <strong>@Model.TableName</strong></div>
+
+<div class="row g-3">
+    <div class="col-lg-7">
+        <div class="table-responsive bg-white rounded shadow-sm">
+            <table class="table mb-0 align-middle">
+                <thead>
+                    <tr>
+                        <th>Món</th>
+                        <th class="text-center">SL</th>
+                        <th class="text-end">Thành tiền</th>
+                    </tr>
+                </thead>
+                <tbody>
+                @foreach (var line in Model.Lines)
+                {
+                    <tr>
+                        <td>
+                            <div>@line.ProductName</div>
+                            @if (!string.IsNullOrWhiteSpace(line.SelectedOptions))
+                            {
+                                <div class="small text-muted">@line.SelectedOptions</div>
+                            }
+                            @if (!string.IsNullOrWhiteSpace(line.Note))
+                            {
+                                <div class="small text-muted">Ghi chú: @line.Note</div>
+                            }
+                        </td>
+                        <td class="text-center">@line.Quantity</td>
+                        <td class="text-end">@((line.UnitPrice * line.Quantity).ToVnd())</td>
+                    </tr>
+                }
+                </tbody>
+                <tfoot>
+                    <tr>
+                        <th colspan="2" class="text-end">Tổng cộng</th>
+                        <th class="text-end text-danger">@Model.Total.ToVnd()</th>
+                    </tr>
+                </tfoot>
+            </table>
+        </div>
+        <a class="btn btn-sm btn-outline-secondary mt-2" asp-controller="Cart" asp-action="Index" asp-route-table="@Model.TableCode">&larr; Sửa giỏ hàng</a>
+    </div>
+
+    <div class="col-lg-5">
+        <form asp-action="Place" method="post" class="bg-white rounded shadow-sm p-3">
+            <input type="hidden" name="table" value="@Model.TableCode" />
+
+            <div class="mb-3">
+                <div class="fw-semibold mb-2">Phương thức thanh toán</div>
+                <div class="form-check">
+                    <input class="form-check-input" type="radio" name="paymentMethod" id="payCash" value="Tiền mặt" checked />
+                    <label class="form-check-label" for="payCash">
+                        Tiền mặt tại quầy
+                        <div class="small text-muted">Gọi thêm món sau, thanh toán khi ra về.</div>
+                    </label>
+                </div>
+                <div class="form-check">
+                    <input class="form-check-input" type="radio" name="paymentMethod" id="payVnPay" value="VNPay" @(hasGateway ? "" : "disabled") />
+                    <label class="form-check-label" for="payVnPay">
+                        VNPay
+                        <div class="small text-muted">
+                            @if (hasGateway)
+                            {
+                                <span>Thanh toán online ngay sau khi gửi đơn.</span>
+                            }
+                            else
+                            {
+                                <span>Chưa được cấu hình trên hệ thống.</span>
+                            }
+                        </div>
+                    </label>
+                </div>
+            </div>
+
+            <div class="mb-2">
+                <label class="form-label" for="email">Email nhận hóa đơn (không bắt buộc)</label>
+                <input id="email" type="email" name="email" maxlength="256" class="form-control" />
+            </div>
+
+            <div class="mb-3">
+                <label class="form-label" for="note">Ghi chú cho đơn (không bắt buộc)</label>
+                <textarea id="note" name="note" maxlength="500" rows="2" class="form-control" placeholder="Ví dụ: mang món chậm, dị ứng..."></textarea>
+            </div>
+
+            <button type="submit" class="btn btn-success w-100">Gửi đơn · @Model.Total.ToVnd()</button>
+            <div class="small text-muted mt-2">Mỗi lần gửi là một đơn riêng; đơn đã gửi không thể thêm món.</div>
+        </form>
+    </div>
+</div>

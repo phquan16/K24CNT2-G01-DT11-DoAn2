@@ -1,9 +1,6 @@
 ﻿using FoodOrder.Models;
 using FoodOrder.Services;
 using FoodOrder.ViewModels;
-using FoodOrder.Models;
-using FoodOrder.Services;
-using FoodOrder.ViewModels;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 

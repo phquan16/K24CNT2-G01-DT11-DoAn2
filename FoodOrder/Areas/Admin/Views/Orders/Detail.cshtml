@@ -1,0 +1,158 @@
+@model FoodOrder.ViewModels.AdminOrderDetailViewModel
+@{
+    ViewData["Title"] = "Đơn " + Model.OrderCode;
+}
+
+<div class="d-flex flex-wrap justify-content-between align-items-center gap-2 mb-3">
+    <div>
+        <h4 class="mb-0">Đơn @Model.OrderCode</h4>
+        <div class="text-muted small">@Model.TableName @(string.IsNullOrWhiteSpace(Model.Area) ? "" : $"({Model.Area})") · @Model.CreatedAt.ToString("dd/MM/yyyy HH:mm")</div>
+    </div>
+    <div class="d-flex gap-2">
+        <span class="badge @(Model.Status == "Hủy" ? "bg-secondary" : Model.Status == "Hoàn tất" ? "bg-success" : Model.Status == "Chờ thanh toán" ? "bg-warning text-dark" : "bg-info text-dark")">@Model.Status</span>
+        <span class="badge @(Model.PaymentStatus == "Đã thanh toán" ? "bg-success" : "bg-light text-dark border")">@Model.PaymentStatus</span>
+        <a class="btn btn-sm btn-outline-secondary" asp-action="Index">Danh sách</a>
+    </div>
+</div>
+
+<div class="row g-3">
+    <div class="col-lg-8">
+        <div class="card shadow-sm mb-3">
+            <div class="card-header bg-white fw-semibold">Món trong đơn</div>
+            <div class="table-responsive">
+                <table class="table table-sm align-middle mb-0">
+                    <thead>
+                        <tr>
+                            <th>Món</th>
+                            <th class="text-center">SL</th>
+                            <th class="text-end">Đơn giá</th>
+                            <th class="text-end">Thành tiền</th>
+                            <th>Trạng thái</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                    @foreach (var item in Model.Items)
+                    {
+                        var collapseId = $"history-{item.OrderDetailId}";
+                        <tr>
+                            <td>
+                                <div>@item.ProductName</div>
+                                @if (!string.IsNullOrWhiteSpace(item.SelectedOptions))
+                                {
+                                    <div class="small text-muted">@item.SelectedOptions</div>
+                                }
+                                @if (!string.IsNullOrWhiteSpace(item.Note))
+                                {
+                                    <div class="small text-muted">Ghi chú: @item.Note</div>
+                                }
+                                @if (item.History.Count > 0)
+                                {
+                                    <button class="btn btn-link btn-sm px-0" type="button" data-bs-toggle="collapse" data-bs-target="#@collapseId">Lịch sử</button>
+                                    <div class="collapse" id="@collapseId">
+                                        <ul class="small text-muted mb-0 ps-3">
+                                            @foreach (var h in item.History)
+                                            {
+                                                <li>@h.ChangedAt.ToString("HH:mm:ss"): @(h.OldStatus ?? "-") → @h.NewStatus @(string.IsNullOrWhiteSpace(h.Note) ? "" : $"({h.Note})")</li>
+                                            }
+                                        </ul>
+                                    </div>
+                                }
+                            </td>
+                            <td class="text-center">@item.Quantity</td>
+                            <td class="text-end">@item.UnitPrice.ToVnd()</td>
+                            <td class="text-end">@item.LineTotal.ToVnd()</td>
+                            <td><span class="badge bg-light text-dark border">@item.ItemStatus</span></td>
+                        </tr>
+                    }
+                    </tbody>
+                    <tfoot>
+                        <tr>
+                            <th colspan="3" class="text-end">Tổng cộng</th>
+                            <th class="text-end text-danger">@Model.TotalAmount.ToVnd()</th>
+                            <th></th>
+                        </tr>
+                    </tfoot>
+                </table>
+            </div>
+        </div>
+
+        <div class="card shadow-sm">
+            <div class="card-header bg-white fw-semibold">Giao dịch thanh toán</div>
+            <div class="table-responsive">
+                <table class="table table-sm mb-0">
+                    <thead>
+                        <tr>
+                            <th>Thời điểm</th>
+                            <th>Phương thức</th>
+                            <th class="text-end">Số tiền</th>
+                            <th>Trạng thái</th>
+                            <th>Mã giao dịch</th>
+                            <th>Mã phản hồi</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                    @if (Model.Payments.Count == 0)
+                    {
+                        <tr><td colspan="6" class="text-muted">Chưa có giao dịch.</td></tr>
+                    }
+                    @foreach (var p in Model.Payments)
+                    {
+                        <tr>
+                            <td class="small">@p.CreatedAt.ToString("dd/MM/yyyy HH:mm")</td>
+                            <td>@p.PaymentMethod</td>
+                            <td class="text-end">@p.Amount.ToVnd()</td>
+                            <td>@p.Status</td>
+                            <td class="small text-muted">@p.TransactionRef</td>
+                            <td class="small text-muted">@p.ResponseCode</td>
+                        </tr>
+                    }
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+
+    <div class="col-lg-4">
+        <div class="card shadow-sm mb-3">
+            <div class="card-header bg-white fw-semibold">Thông tin</div>
+            <div class="card-body small">
+                <div class="d-flex justify-content-between mb-1"><span class="text-muted">Phương thức</span><span>@Model.PaymentMethod</span></div>
+                <div class="d-flex justify-content-between mb-1"><span class="text-muted">Thanh toán</span><span>@Model.PaymentStatus</span></div>
+                <div class="d-flex justify-content-between mb-1"><span class="text-muted">Tổng tiền</span><span class="fw-semibold">@Model.TotalAmount.ToVnd()</span></div>
+                @if (Model.ExpiredAt.HasValue)
+                {
+                    <div class="d-flex justify-content-between mb-1"><span class="text-muted">Hết hạn</span><span>@Model.ExpiredAt.Value.ToString("dd/MM/yyyy HH:mm:ss")</span></div>
+                }
+                @if (!string.IsNullOrWhiteSpace(Model.CustomerEmail))
+                {
+                    <div class="d-flex justify-content-between mb-1"><span class="text-muted">Email</span><span>@Model.CustomerEmail</span></div>
+                }
+                @if (!string.IsNullOrWhiteSpace(Model.InternalNote))
+                {
+                    <div class="mt-2"><span class="text-muted">Ghi chú:</span><div>@Model.InternalNote</div></div>
+                }
+            </div>
+        </div>
+
+        <div class="card shadow-sm">
+            <div class="card-header bg-white fw-semibold">Hủy đơn</div>
+            <div class="card-body">
+                @if (Model.CanCancel)
+                {
+                    <form asp-action="Cancel" method="post" onsubmit="return confirm('Hủy toàn bộ đơn này? Tồn kho của các món chưa chế biến sẽ được hoàn.');">
+                        <input type="hidden" name="id" value="@Model.OrderId" />
+                        <div class="mb-2">
+                            <label class="form-label" for="note">Lý do (không bắt buộc)</label>
+                            <input id="note" name="note" maxlength="300" class="form-control" />
+                        </div>
+                        <button type="submit" class="btn btn-outline-danger w-100">Hủy đơn</button>
+                    </form>
+                }
+                else
+                {
+                    <div class="text-muted small">@Model.CancelBlockReason</div>
+                }
+            </div>
+        </div>
+    </div>
+</div>

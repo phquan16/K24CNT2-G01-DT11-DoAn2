@@ -150,7 +150,6 @@ D:\K24CNT2\K24CNT2-G01-DT11-DoAn2\FoodOrder\obj\Debug\net8.0\staticwebassets.bui
 D:\K24CNT2\K24CNT2-G01-DT11-DoAn2\FoodOrder\obj\Debug\net8.0\staticwebassets.development.json
 D:\K24CNT2\K24CNT2-G01-DT11-DoAn2\FoodOrder\obj\Debug\net8.0\staticwebassets.build.endpoints.json
 D:\K24CNT2\K24CNT2-G01-DT11-DoAn2\FoodOrder\obj\Debug\net8.0\swae.build.ex.cache
-D:\K24CNT2\K24CNT2-G01-DT11-DoAn2\FoodOrder\obj\Debug\net8.0\staticwebassets.upToDateCheck.txt
 D:\K24CNT2\K24CNT2-G01-DT11-DoAn2\FoodOrder\obj\Debug\net8.0\FoodOrder.csproj.Up2Date
 D:\K24CNT2\K24CNT2-G01-DT11-DoAn2\FoodOrder\obj\Debug\net8.0\FoodOrder.dll
 D:\K24CNT2\K24CNT2-G01-DT11-DoAn2\FoodOrder\obj\Debug\net8.0\refint\FoodOrder.dll
@@ -159,3 +158,4 @@ D:\K24CNT2\K24CNT2-G01-DT11-DoAn2\FoodOrder\obj\Debug\net8.0\FoodOrder.genruntim
 D:\K24CNT2\K24CNT2-G01-DT11-DoAn2\FoodOrder\obj\Debug\net8.0\ref\FoodOrder.dll
 D:\K24CNT2\K24CNT2-G01-DT11-DoAn2\FoodOrder\obj\Debug\net8.0\scopedcss\Views\Shared\_MenuLayout.cshtml.rz.scp.css
 D:\K24CNT2\K24CNT2-G01-DT11-DoAn2\FoodOrder\bin\Debug\net8.0\CsvHelper.dll
+D:\K24CNT2\K24CNT2-G01-DT11-DoAn2\FoodOrder\obj\Debug\net8.0\staticwebassets.upToDateCheck.txt

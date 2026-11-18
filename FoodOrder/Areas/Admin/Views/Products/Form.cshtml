@@ -1,0 +1,92 @@
+﻿@model FoodOrder.ViewModels.ProductViewModel
+@{
+    var isEdit = Model.ProductId > 0;
+    ViewData["Title"] = isEdit ? "Sửa món" : "Thêm món";
+}
+<h3>@ViewData["Title"]</h3>
+
+@if (TempData["Success"] != null) { <div class="alert alert-success">@TempData["Success"]</div> }
+<div asp-validation-summary="All" class="text-danger"></div>
+
+<form method="post" asp-action="@(isEdit ? "Edit" : "Create")">
+    <input type="hidden" asp-for="ProductId" />
+    <input type="hidden" asp-for="RowVersionBase64" />
+
+    <div class="row g-3">
+        <div class="col-md-6">
+            <label asp-for="Name" class="form-label"></label>
+            <input asp-for="Name" class="form-control" />
+            <span asp-validation-for="Name" class="text-danger"></span>
+        </div>
+        <div class="col-md-3">
+            <label asp-for="CategoryId" class="form-label"></label>
+            <select asp-for="CategoryId" asp-items="@((List<Microsoft.AspNetCore.Mvc.Rendering.SelectListItem>)ViewBag.Categories)" class="form-select">
+                <option value="">-- Chọn danh mục --</option>
+            </select>
+            <span asp-validation-for="CategoryId" class="text-danger"></span>
+        </div>
+        <div class="col-md-3">
+            <label asp-for="Price" class="form-label"></label>
+            <input asp-for="Price" class="form-control" />
+            <span asp-validation-for="Price" class="text-danger"></span>
+        </div>
+
+        <div class="col-md-3">
+            <label asp-for="SalePrice" class="form-label"></label>
+            <input asp-for="SalePrice" class="form-control" />
+            <span asp-validation-for="SalePrice" class="text-danger"></span>
+        </div>
+        <div class="col-md-3">
+            <label asp-for="Stock" class="form-label"></label>
+            <input asp-for="Stock" class="form-control" placeholder="Bỏ trống = không giới hạn" />
+            <span asp-validation-for="Stock" class="text-danger"></span>
+            <div class="form-text">Bỏ trống nếu món không theo dõi tồn kho.</div>
+        </div>
+        <div class="col-md-2">
+            <label asp-for="SpiceLevel" class="form-label"></label>
+            <input asp-for="SpiceLevel" class="form-control" />
+            <span asp-validation-for="SpiceLevel" class="text-danger"></span>
+        </div>
+        <div class="col-md-2">
+            <label asp-for="Calories" class="form-label"></label>
+            <input asp-for="Calories" class="form-control" />
+            <span asp-validation-for="Calories" class="text-danger"></span>
+        </div>
+        <div class="col-md-2 pt-4">
+            <div class="form-check">
+                <input asp-for="IsAvailable" class="form-check-input" />
+                <label asp-for="IsAvailable" class="form-check-label"></label>
+            </div>
+            <div class="form-check">
+                <input asp-for="IsActive" class="form-check-input" />
+                <label asp-for="IsActive" class="form-check-label"></label>
+            </div>
+        </div>
+
+        <div class="col-12">
+            <label asp-for="Description" class="form-label"></label>
+            <textarea asp-for="Description" rows="2" class="form-control"></textarea>
+            <span asp-validation-for="Description" class="text-danger"></span>
+        </div>
+        <div class="col-12">
+            <label asp-for="Composition" class="form-label"></label>
+            <textarea asp-for="Composition" rows="2" class="form-control"></textarea>
+            <span asp-validation-for="Composition" class="text-danger"></span>
+        </div>
+    </div>
+
+    <div class="mt-3">
+        <button class="btn btn-primary">Lưu</button>
+        <a class="btn btn-light" asp-action="Index">Quay lại</a>
+    </div>
+</form>
+
+@if (isEdit)
+{
+    <div id="product-extras" class="mt-4">
+        @await Html.PartialAsync("_Images", (List<FoodOrder.Models.ProductImage>)ViewBag.Images)
+        @await Html.PartialAsync("_Options", Model.ProductId)
+    </div>
+}
+
+@section Scripts { <partial name="_ValidationScriptsPartial" /> }

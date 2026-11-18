@@ -1,53 +1,88 @@
 ﻿<!DOCTYPE html>
-<html lang="en">
+<html lang="vi">
 <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>@ViewData["Title"] - FoodOrder</title>
     <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />
     <link rel="stylesheet" href="~/css/site.css" asp-append-version="true" />
-    <link rel="stylesheet" href="~/FoodOrder.styles.css" asp-append-version="true" />
 </head>
 <body>
     <header>
-        <nav class="navbar navbar-expand-sm navbar-toggleable-sm navbar-light bg-white border-bottom box-shadow mb-3">
+        <nav class="navbar navbar-expand-lg navbar-light bg-white border-bottom box-shadow mb-3">
             <div class="container-fluid">
-                <a class="navbar-brand" asp-area="" asp-controller="Home" asp-action="Index">FoodOrder</a>
-                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target=".navbar-collapse" aria-controls="navbarSupportedContent"
-                        aria-expanded="false" aria-label="Toggle navigation">
+                <a class="navbar-brand fw-bold" asp-area="" asp-controller="Home" asp-action="Index">FoodOrder</a>
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent"
+                        aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Mở menu">
                     <span class="navbar-toggler-icon"></span>
                 </button>
-                <div class="navbar-collapse collapse d-sm-inline-flex justify-content-between">
+                <div id="navbarSupportedContent" class="navbar-collapse collapse d-lg-inline-flex justify-content-between">
                     <ul class="navbar-nav flex-grow-1">
-                        <li class="nav-item">
-                            <a class="nav-link text-dark" asp-area="" asp-controller="Home" asp-action="Index">Home</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link text-dark" asp-area="" asp-controller="Home" asp-action="Privacy">Privacy</a>
-                        </li>
-                        @if (User.IsInRole("Admin"))
+                        @if (User.IsInRole(AppRoles.Admin))
+                        {
+                            <li class="nav-item dropdown">
+                                <a class="nav-link dropdown-toggle text-dark" href="#" id="adminMenu" role="button" data-bs-toggle="dropdown" aria-expanded="false">Quản trị</a>
+                                <ul class="dropdown-menu" aria-labelledby="adminMenu">
+                                    <li><a class="dropdown-item" asp-area="Admin" asp-controller="Home" asp-action="Index">Tổng quan</a></li>
+                                    <li><a class="dropdown-item" asp-area="Admin" asp-controller="Products" asp-action="Index">Sản phẩm</a></li>
+                                    <li><a class="dropdown-item" asp-area="Admin" asp-controller="Categories" asp-action="Index">Danh mục</a></li>
+                                    <li><a class="dropdown-item" asp-area="Admin" asp-controller="Tables" asp-action="Index">Bàn ăn &amp; QR</a></li>
+                                    <li><a class="dropdown-item" asp-area="Admin" asp-controller="Ingredients" asp-action="Index">Nguyên liệu</a></li>
+                                    <li><a class="dropdown-item" asp-area="Admin" asp-controller="ProductImport" asp-action="Index">Nhập món từ CSV</a></li>
+                                    <li><hr class="dropdown-divider" /></li>
+                                    <li><a class="dropdown-item" asp-area="Admin" asp-controller="Orders" asp-action="Index">Đơn hàng</a></li>
+                                    <li><a class="dropdown-item" asp-area="Admin" asp-controller="Staff" asp-action="Index">Nhân viên</a></li>
+                                    <li><a class="dropdown-item" asp-area="Admin" asp-controller="Reports" asp-action="Index">Báo cáo doanh thu</a></li>
+                                </ul>
+                            </li>
+                        }
+                        @if (User.IsInRole(AppRoles.Admin) || User.IsInRole(AppRoles.Kitchen))
                         {
                             <li class="nav-item">
-                                <a class="nav-link" asp-area="Admin" asp-controller="Categories" asp-action="Index">Danh mục</a>
+                                <a class="nav-link text-dark" asp-area="Kitchen" asp-controller="Queue" asp-action="Index">Màn hình bếp</a>
                             </li>
+                        }
+                        @if (User.IsInRole(AppRoles.Admin) || User.IsInRole(AppRoles.Waiter))
+                        {
                             <li class="nav-item">
-                                <a class="nav-link" asp-area="Admin" asp-controller="Tables" asp-action="Index">Bàn ăn</a>
+                                <a class="nav-link text-dark" asp-area="Waiter" asp-controller="Home" asp-action="Index">Sơ đồ bàn</a>
+                            </li>
+                        }
+                        @if (User.IsInRole(AppRoles.Admin) || User.IsInRole(AppRoles.Cashier))
+                        {
+                            <li class="nav-item">
+                                <a class="nav-link text-dark" asp-area="Cashier" asp-controller="Home" asp-action="Index">Thu ngân</a>
                             </li>
                         }
                     </ul>
+                    <partial name="_LoginPartial" />
                 </div>
             </div>
         </nav>
     </header>
-    <div class="container">
+    <div class="container-fluid px-3 px-lg-4">
         <main role="main" class="pb-3">
+            @if (TempData["Success"] is string success)
+            {
+                <div class="alert alert-success alert-dismissible fade show" role="alert">
+                    @success
+                    <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Đóng"></button>
+                </div>
+            }
+            @if (TempData["Error"] is string error)
+            {
+                <div class="alert alert-danger alert-dismissible fade show" role="alert">
+                    @error
+                    <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Đóng"></button>
+                </div>
+            }
             @RenderBody()
         </main>
     </div>
 
-    <footer class="border-top footer text-muted">
-        <div class="container">
-            &copy; 2026 - FoodOrder - <a asp-area="" asp-controller="Home" asp-action="Privacy">Privacy</a>
+    <footer class="border-top footer text-muted mt-3">
+        <div class="container py-2">
+            &copy; 2026 - FoodOrder - <a asp-area="" asp-controller="Home" asp-action="Privacy">Giới thiệu</a>
         </div>
     </footer>
     <script src="~/lib/jquery/dist/jquery.min.js"></script>

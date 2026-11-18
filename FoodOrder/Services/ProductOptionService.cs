@@ -1,20 +1,8 @@
-﻿using FoodOrder.Data;
 using FoodOrder.Data;
 using FoodOrder.Models;
-using FoodOrder.Models;
-using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 
 namespace FoodOrder.Services;
-
-public record OptionDto(int ProductOptionId, string OptionName, string OptionValue, decimal ExtraPrice);
-
-public interface IProductOptionService
-{
-    Task<List<OptionDto>> GetAsync(int productId);
-    Task<(bool ok, string? error, OptionDto? item)> AddAsync(int productId, string name, string value, decimal extra);
-    Task<bool> DeleteAsync(int optionId);
-}
 
 public class ProductOptionService : IProductOptionService
 {
@@ -29,8 +17,10 @@ public class ProductOptionService : IProductOptionService
 
     public async Task<(bool, string?, OptionDto?)> AddAsync(int productId, string name, string value, decimal extra)
     {
-        name = (name ?? "").Trim(); value = (value ?? "").Trim();
+        name = (name ?? "").Trim();
+        value = (value ?? "").Trim();
         if (name.Length == 0 || value.Length == 0) return (false, "Nhóm và giá trị không được trống.", null);
+        if (name.Length > 50 || value.Length > 50) return (false, "Nhóm và giá trị tối đa 50 ký tự.", null);
         if (extra < 0) return (false, "Phụ thu không được âm.", null);
         if (!await _db.Products.AnyAsync(p => p.ProductId == productId)) return (false, "Không tìm thấy món.", null);
         if (await _db.ProductOptions.AnyAsync(o => o.ProductId == productId && o.OptionName == name && o.OptionValue == value))
@@ -50,17 +40,4 @@ public class ProductOptionService : IProductOptionService
         await _db.SaveChangesAsync();
         return true;
     }
-    [HttpGet]
-    public async Task<IActionResult> OptionList(int id) => Json(await _options.GetAsync(id));
-
-    [HttpPost, ValidateAntiForgeryToken]
-    public async Task<IActionResult> OptionAdd(int id, string optionName, string optionValue, decimal extraPrice)
-    {
-        var (ok, error, item) = await _options.AddAsync(id, optionName, optionValue, extraPrice);
-        return ok ? Json(new { ok = true, item }) : BadRequest(new { ok = false, error });
-    }
-
-    [HttpPost, ValidateAntiForgeryToken]
-    public async Task<IActionResult> OptionDelete(int optionId)
-        => (await _options.DeleteAsync(optionId)) ? Json(new { ok = true }) : NotFound(new { ok = false });
 }

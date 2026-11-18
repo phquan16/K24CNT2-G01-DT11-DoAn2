@@ -4,31 +4,22 @@ using Microsoft.AspNetCore.Mvc;
 
 namespace FoodOrder.Controllers;
 
-public class MenuController : Controller
+public class MenuController : TableContextController
 {
-    private const string SessionCookie = "fo_session";
     private const int PageSize = 12;
 
-    private readonly ITableService _tables;
-    private readonly ITableSessionService _sessions;
     private readonly IMenuService _menu;
 
     public MenuController(ITableService tables, ITableSessionService sessions, IMenuService menu)
+        : base(tables, sessions)
     {
-        _tables = tables;
-        _sessions = sessions;
         _menu = menu;
     }
 
     public async Task<IActionResult> Index(string? table, int? categoryId, string? q, int page = 1)
     {
-        if (string.IsNullOrWhiteSpace(table)) return View("TableNotFound");
-
-        var t = await _tables.GetByCodeAsync(table);
-        if (t == null || !t.IsActive || t.Status == TableStatus.Paused)
-            return View("TableNotFound");
-
-        await EnsureSessionAsync(t.TableId);
+        var (t, _) = await ResolveAsync(table);
+        if (t == null) return TableMissing();
 
         var vm = await _menu.GetMenuAsync(categoryId, q, page, PageSize);
         vm.TableCode = t.TableCode;
@@ -37,23 +28,15 @@ public class MenuController : Controller
         return View(vm);
     }
 
-    private async Task<TableSession> EnsureSessionAsync(int tableId)
+    public async Task<IActionResult> Detail(int id, string? table)
     {
-        if (Request.Cookies.TryGetValue(SessionCookie, out var raw) && Guid.TryParse(raw, out var token))
-        {
-            var existing = await _sessions.GetValidAsync(token, tableId);
-            if (existing != null) return existing;
-        }
+        var (t, _) = await ResolveAsync(table);
+        if (t == null) return TableMissing();
 
-        var created = await _sessions.StartAsync(tableId);
-        Response.Cookies.Append(SessionCookie, created.SessionToken.ToString(), new CookieOptions
-        {
-            HttpOnly = true,
-            SameSite = SameSiteMode.Lax,
-            Secure = Request.IsHttps,
-            Expires = created.ExpiredAt
-        });
+        var vm = await _menu.GetDetailAsync(id);
+        if (vm == null) return NotFound();
 
-        return created;
+        vm.TableCode = t.TableCode;
+        return View(vm);
     }
 }

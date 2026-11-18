@@ -17,6 +17,7 @@ public interface IOrderService
     Task<List<CustomerOrderViewModel>> GetSessionOrdersAsync(int tableId, Guid sessionToken);
     Task<(bool Ok, string? Error)> CancelItemAsync(long orderDetailId, int tableId, Guid sessionToken);
     Task<(bool Ok, string? Error)> CancelAwaitingPaymentAsync(long orderId, int tableId, Guid sessionToken);
+    Task<(bool Ok, string? Error)> CancelOrderByStaffAsync(long orderId, string? changedBy, string? note);
     Task<(bool Ok, string? Error)> CloseTableAsync(int tableId);
 }
 
@@ -302,6 +303,74 @@ public class OrderService : IOrderService
         if (order == null) return (false, "Không tìm thấy đơn.");
         if (order.Status != OrderStatus.AwaitingPayment) return (false, "Đơn không còn chờ thanh toán.");
 
+        await CancelAwaitingCoreAsync(order, "Khách hủy đơn chờ thanh toán");
+        await _db.SaveChangesAsync();
+        await tx.CommitAsync();
+        return (true, null);
+    }
+
+    public async Task<(bool Ok, string? Error)> CancelOrderByStaffAsync(long orderId, string? changedBy, string? note)
+    {
+        var historyNote = string.IsNullOrWhiteSpace(note) ? "Nhân viên hủy đơn" : note.Trim();
+        if (historyNote.Length > 300) historyNote = historyNote[..300];
+
+        await using var tx = await _db.Database.BeginTransactionAsync(IsolationLevel.Serializable);
+        try
+        {
+            var order = await _db.Orders
+                .Include(o => o.OrderDetails)
+                .Include(o => o.Payments)
+                .FirstOrDefaultAsync(o => o.OrderId == orderId);
+
+            if (order == null) return (false, "Không tìm thấy đơn.");
+            if (order.PaymentStatus == PayStatus.Paid)
+                return (false, "Đơn đã thanh toán, không thể hủy. Vui lòng xử lý hoàn tiền theo quy trình.");
+            if (order.Status == OrderStatus.Cancelled) return (false, "Đơn đã hủy.");
+            if (order.Status == OrderStatus.Completed) return (false, "Đơn đã hoàn tất.");
+
+            if (order.Status == OrderStatus.AwaitingPayment)
+            {
+                await CancelAwaitingCoreAsync(order, historyNote);
+                await _db.SaveChangesAsync();
+                await tx.CommitAsync();
+                return (true, null);
+            }
+
+            if (order.OrderDetails.Any(d => d.ItemStatus == ItemStatus.Done || d.ItemStatus == ItemStatus.Served))
+                return (false, "Đơn đã có món chế biến xong hoặc đã phục vụ; hãy thu tiền thay vì hủy.");
+
+            var cancellable = order.OrderDetails
+                .Where(d => d.ItemStatus == ItemStatus.New || d.ItemStatus == ItemStatus.Cooking)
+                .ToList();
+            if (cancellable.Count == 0) return (false, "Không còn món nào có thể hủy.");
+
+            foreach (var item in cancellable)
+            {
+                await SqlProc.ExecuteAsync(
+                    _db,
+                    "dbo.sp_UpdateItemStatus",
+                    ("@OrderDetailId", item.OrderDetailId),
+                    ("@NewStatus", ItemStatus.Cancelled),
+                    ("@ChangedBy", changedBy),
+                    ("@Note", historyNote),
+                    ("@ByCustomer", false));
+            }
+
+            await tx.CommitAsync();
+            return (true, null);
+        }
+        catch (SqlException ex)
+        {
+            return (false, ex.Message);
+        }
+        catch (DbUpdateException)
+        {
+            return (false, "Không hủy được đơn do dữ liệu vừa thay đổi. Vui lòng thử lại.");
+        }
+    }
+
+    private async Task CancelAwaitingCoreAsync(Order order, string historyNote)
+    {
         var freshItems = order.OrderDetails.Where(d => d.ItemStatus == ItemStatus.New).ToList();
         await RestoreStockAsync(freshItems);
 
@@ -313,7 +382,7 @@ public class OrderService : IOrderService
                 OldStatus = ItemStatus.New,
                 NewStatus = ItemStatus.Cancelled,
                 ChangedAt = DateTime.Now,
-                Note = "Khách hủy đơn chờ thanh toán"
+                Note = historyNote
             });
             item.ItemStatus = ItemStatus.Cancelled;
         }
@@ -324,9 +393,6 @@ public class OrderService : IOrderService
         order.Status = OrderStatus.Cancelled;
         order.TotalAmount = 0;
         order.UpdatedAt = DateTime.Now;
-        await _db.SaveChangesAsync();
-        await tx.CommitAsync();
-        return (true, null);
     }
 
     public async Task<(bool Ok, string? Error)> CloseTableAsync(int tableId)

@@ -1,0 +1,91 @@
+@model FoodOrder.ViewModels.CartPageViewModel
+@{
+    ViewData["Title"] = "Giỏ hàng - " + Model.TableName;
+    Layout = "_MenuLayout";
+}
+
+<h4 class="mb-1">Giỏ hàng</h4>
+<div class="text-muted mb-3">Bàn <strong>@Model.TableName</strong></div>
+
+@if (Model.Lines.Count == 0)
+{
+    <div class="alert alert-info">
+        Giỏ hàng đang trống.
+        <a asp-controller="Menu" asp-action="Index" asp-route-table="@Model.TableCode">Xem thực đơn</a>.
+    </div>
+}
+else
+{
+    <div class="table-responsive bg-white rounded shadow-sm">
+        <table class="table align-middle mb-0">
+            <thead>
+                <tr>
+                    <th>Món</th>
+                    <th class="text-end">Đơn giá</th>
+                    <th style="width:170px">Số lượng</th>
+                    <th class="text-end">Thành tiền</th>
+                    <th></th>
+                </tr>
+            </thead>
+            <tbody>
+            @foreach (var line in Model.Lines)
+            {
+                <tr>
+                    <td>
+                        <div class="fw-semibold">@line.ProductName</div>
+                        @if (!string.IsNullOrWhiteSpace(line.SelectedOptions))
+                        {
+                            <div class="small text-muted">@line.SelectedOptions</div>
+                        }
+                        @if (!string.IsNullOrWhiteSpace(line.Note))
+                        {
+                            <div class="small text-muted">Ghi chú: @line.Note</div>
+                        }
+                        @if (line.Error != null)
+                        {
+                            <div class="small text-danger">@line.Error</div>
+                        }
+                        else if (line.IsSoldOut)
+                        {
+                            <div class="small text-danger">Món không còn đủ số lượng.</div>
+                        }
+                    </td>
+                    <td class="text-end">@line.UnitPrice.ToVnd()</td>
+                    <td>
+                        <form asp-action="Update" method="post" class="d-flex gap-1">
+                            <input type="hidden" name="table" value="@Model.TableCode" />
+                            <input type="hidden" name="index" value="@line.Index" />
+                            <input type="number" name="quantity" value="@line.Quantity" min="0" max="50" class="form-control form-control-sm" />
+                            <button type="submit" class="btn btn-sm btn-outline-secondary">Cập nhật</button>
+                        </form>
+                    </td>
+                    <td class="text-end fw-semibold">@((line.UnitPrice * line.Quantity).ToVnd())</td>
+                    <td class="text-end">
+                        <form asp-action="Remove" method="post">
+                            <input type="hidden" name="table" value="@Model.TableCode" />
+                            <input type="hidden" name="index" value="@line.Index" />
+                            <button type="submit" class="btn btn-sm btn-outline-danger">Xóa</button>
+                        </form>
+                    </td>
+                </tr>
+            }
+            </tbody>
+            <tfoot>
+                <tr>
+                    <th colspan="3" class="text-end">Tổng cộng</th>
+                    <th class="text-end text-danger fs-5">@Model.Total.ToVnd()</th>
+                    <th></th>
+                </tr>
+            </tfoot>
+        </table>
+    </div>
+
+    <div class="d-flex flex-wrap gap-2 mt-3">
+        <a class="btn btn-outline-primary" asp-controller="Menu" asp-action="Index" asp-route-table="@Model.TableCode">Chọn thêm món</a>
+        <form asp-action="Clear" method="post" onsubmit="return confirm('Xóa toàn bộ giỏ hàng?');">
+            <input type="hidden" name="table" value="@Model.TableCode" />
+            <button type="submit" class="btn btn-outline-danger">Xóa giỏ</button>
+        </form>
+        <a class="btn btn-success ms-auto" asp-controller="Checkout" asp-action="Index" asp-route-table="@Model.TableCode">Tiến hành đặt món</a>
+    </div>
+}

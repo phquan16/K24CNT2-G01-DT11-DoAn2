@@ -1,32 +1,43 @@
-﻿@model (int ProductId, List<FoodOrder.Web.Models.ProductImage> Images)
+﻿@model List<FoodOrder.Models.ProductImage>
+@{
+    var productId = (int)ViewData["ProductId"]!;
+}
 
 <h5>Ảnh món</h5>
 @if (TempData["Error"] != null) { <div class="alert alert-danger">@TempData["Error"]</div> }
 
-<form asp-action="UploadImages" asp-route-id="@Model.ProductId" method="post" enctype="multipart/form-data" class="mb-3">
-  <input type="file" name="files" multiple accept=".jpg,.jpeg,.png,.webp" class="form-control d-inline-block w-auto" />
-  <button class="btn btn-outline-primary">Tải lên</button>
+<form asp-action="UploadImages" asp-route-id="@productId" method="post" enctype="multipart/form-data" class="mb-3">
+    <input type="file" name="files" multiple accept=".jpg,.jpeg,.png,.webp" class="form-control d-inline-block w-auto" />
+    <button class="btn btn-outline-primary">Tải lên</button>
+    <div class="form-text">JPG, PNG, WEBP; tối đa 2 MB mỗi ảnh.</div>
 </form>
 
 <div class="d-flex flex-wrap gap-3">
-@foreach (var img in Model.Images)
-{
-  <div class="card" style="width:140px">
-    <img src="@img.ImageUrl" class="card-img-top" style="height:110px;object-fit:cover" />
-    <div class="card-body p-2 text-center">
-      @if (img.IsMain) { <span class="badge bg-success">Ảnh chính</span> }
-      else
-      {
-        <form asp-action="SetMainImage" asp-route-id="@Model.ProductId" method="post" class="d-inline">
-          <input type="hidden" name="imageId" value="@img.ProductImageId" />
-          <button class="btn btn-sm btn-light">Đặt chính</button>
-        </form>
-      }
-      <form asp-action="DeleteImage" asp-route-id="@Model.ProductId" method="post" class="d-inline">
-        <input type="hidden" name="imageId" value="@img.ProductImageId" />
-        <button class="btn btn-sm btn-outline-danger" onclick="return confirm('Xóa ảnh?')">Xóa</button>
-      </form>
-    </div>
-  </div>
-}
+    @foreach (var img in Model)
+    {
+        <div class="card" style="width:140px">
+            <img src="@img.ImageUrl" class="card-img-top" style="height:110px;object-fit:cover" alt="Ảnh món" />
+            <div class="card-body p-2 text-center">
+                @if (img.IsMain)
+                {
+                    <span class="badge bg-success">Ảnh chính</span>
+                }
+                else
+                {
+                    <form asp-action="SetMainImage" asp-route-id="@productId" method="post" class="d-inline">
+                        <input type="hidden" name="imageId" value="@img.ProductImageId" />
+                        <button class="btn btn-sm btn-light">Đặt chính</button>
+                    </form>
+                }
+                <form asp-action="DeleteImage" asp-route-id="@productId" method="post" class="d-inline">
+                    <input type="hidden" name="imageId" value="@img.ProductImageId" />
+                    <button class="btn btn-sm btn-outline-danger" onclick="return confirm('Xóa ảnh?')">Xóa</button>
+                </form>
+            </div>
+        </div>
+    }
+    @if (Model.Count == 0)
+    {
+        <div class="text-muted">Chưa có ảnh.</div>
+    }
 </div>

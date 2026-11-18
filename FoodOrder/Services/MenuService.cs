@@ -93,6 +93,19 @@ public class MenuService : IMenuService
             .Select(g => new { Count = g.Count(), Avg = g.Average(r => (double)r.Rating) })
             .FirstOrDefaultAsync();
 
+        var reviews = await _db.Reviews.AsNoTracking()
+            .Where(r => r.ProductId == productId)
+            .OrderByDescending(r => r.CreatedAt)
+            .Take(10)
+            .Select(r => new ProductReviewViewModel
+            {
+                CustomerName = r.CustomerName,
+                Rating = r.Rating,
+                Comment = r.Comment,
+                CreatedAt = r.CreatedAt
+            })
+            .ToListAsync();
+
         return new ProductDetailViewModel
         {
             ProductId = product.ProductId,
@@ -123,7 +136,8 @@ public class MenuService : IMenuService
                             Value = o.OptionValue,
                             ExtraPrice = o.ExtraPrice
                         }).ToList()
-                }).ToList()
+                }).ToList(),
+            Reviews = reviews
         };
     }
 }
