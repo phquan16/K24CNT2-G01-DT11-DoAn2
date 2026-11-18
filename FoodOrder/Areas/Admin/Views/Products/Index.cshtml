@@ -1,0 +1,84 @@
+﻿@model FoodOrder.Web.ViewModels.ProductListViewModel
+@{
+    ViewData["Title"] = "Quản lý món ăn";
+}
+
+<div class="d-flex justify-content-between mb-3">
+    <h3>Món ăn</h3>
+    <a class="btn btn-primary" asp-action="Create">+ Thêm món</a>
+</div>
+
+@if (TempData["Success"] != null)
+{
+    <div class="alert alert-success">@TempData["Success"]</div>
+}
+
+<form method="get" class="row g-2 mb-3">
+    <div class="col-md-4">
+        <input name="keyword" value="@Model.Keyword" class="form-control" placeholder="Tìm theo tên món..." />
+    </div>
+    <div class="col-md-3">
+        <select name="categoryId" class="form-select">
+            <option value="">-- Tất cả danh mục --</option>
+            @foreach (var c in Model.Categories)
+            {
+                <option value="@c.CategoryId" selected="@(Model.CategoryId == c.CategoryId)">@c.Name</option>
+            }
+        </select>
+    </div>
+    <div class="col-auto"><button class="btn btn-outline-secondary">Lọc</button></div>
+</form>
+
+<table class="table table-hover align-middle">
+    <thead><tr><th></th><th>Tên món</th><th>Danh mục</th><th class="text-end">Giá</th><th>Tồn</th><th>Trạng thái</th><th></th></tr></thead>
+    <tbody>
+        @foreach (var p in Model.Items)
+        {
+            <tr class="@(p.IsActive ? "" : "table-secondary")">
+                <td style="width:60px">@if (p.MainImage != null) {
+                    <img src="@p.MainImage" width="48" height="48" style="object-fit:cover;border-radius:6px" />
+                }
+            </td>
+            <td>@p.Name</td>
+            <td>@p.CategoryName</td>
+            <td class="text-end">@p.Price.ToString("N0") đ</td>
+            <td>@(p.Stock?.ToString() ?? "—")</td>
+            <td>
+                @if (!p.IsActive)
+                {
+                    <span class="badge bg-secondary">Đã ẩn</span>
+                }
+                else if (!p.IsAvailable)
+                {
+
+                    <span class="badge bg-warning text-dark">Hết món</span>
+                }
+                else
+                {
+
+                    <span class="badge bg-success">Đang bán</span>
+                }
+            </td>
+            <td class="text-end">
+                <a class="btn btn-sm btn-outline-primary" asp-action="Edit" asp-route-id="@p.ProductId">Sửa</a>
+                <form asp-action="Toggle" method="post" class="d-inline">
+                    <input type="hidden" name="id" value="@p.ProductId" />
+                    <input type="hidden" name="active" value="@((!p.IsActive).ToString().ToLower())" />
+                    <button class="btn btn-sm btn-outline-danger" onclick="return confirm('Xác nhận?')">@(p.IsActive ? "Ẩn" : "Hiện")</button>
+                </form>
+            </td>
+        </tr>
+    }
+</tbody>
+</table>
+
+<nav>
+    <ul class="pagination">
+        @for (var i = 1; i <= Model.TotalPages; i++)
+        {
+            <li class="page-item @(i == Model.Page ? "active" : "")">
+                <a class="page-link" asp-action="Index" asp-route-page="@i" asp-route-keyword="@Model.Keyword" asp-route-categoryId="@Model.CategoryId">@i</a>
+            </li>
+        }
+    </ul>
+</nav>

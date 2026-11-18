@@ -1,0 +1,13 @@
+﻿@model FoodOrder.ViewModels.IngredientViewModel
+<h3>@(Model.IngredientId == 0 ? "Thêm nguyên liệu" : "Sửa nguyên liệu")</h3>
+<div asp-validation-summary="All" class="text-danger"></div>
+<form asp-action="Save" method="post" class="row g-3" style="max-width:640px">
+  <input type="hidden" asp-for="IngredientId" />
+  <input type="hidden" asp-for="RowVersionBase64" />
+  <div class="col-md-6"><label asp-for="Name" class="form-label">Tên</label><input asp-for="Name" class="form-control" /></div>
+  <div class="col-md-6"><label asp-for="Unit" class="form-label">Đơn vị</label><input asp-for="Unit" class="form-control" /></div>
+  <div class="col-md-6"><label asp-for="StockQty" class="form-label">Tồn hiện tại</label><input asp-for="StockQty" class="form-control" /></div>
+  <div class="col-md-6"><label asp-for="MinQty" class="form-label">Ngưỡng cảnh báo</label><input asp-for="MinQty" class="form-control" /></div>
+  <div class="col-12"><button class="btn btn-primary">Lưu</button> <a class="btn btn-light" asp-action="Index">Quay lại</a></div>
+</form>
+@section Scripts { <partial name="_ValidationScriptsPartial" /> }

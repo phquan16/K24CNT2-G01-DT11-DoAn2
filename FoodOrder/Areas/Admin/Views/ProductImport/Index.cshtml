@@ -1,0 +1,7 @@
+﻿<h3>Nhập món từ CSV</h3>
+@if (TempData["Error"] != null) { <div class="alert alert-danger">@TempData["Error"]</div> }
+<p class="text-muted">Cột: ProductName, CategoryName, Price, Description, Stock. Tối đa 2.000 dòng.</p>
+<form asp-action="Preview" method="post" enctype="multipart/form-data">
+  <input type="file" name="file" accept=".csv" class="form-control w-auto d-inline-block" required />
+  <button class="btn btn-primary">Xem trước</button>
+</form>

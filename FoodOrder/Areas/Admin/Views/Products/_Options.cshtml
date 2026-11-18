@@ -1,0 +1,61 @@
+﻿@model int
+@Html.AntiForgeryToken()
+<h5 class="mt-4">Tùy chọn món</h5>
+<div id="opt-error" class="text-danger small mb-2"></div>
+
+<div class="row g-2 mb-3">
+  <div class="col-md-3"><input id="opt-name" class="form-control" placeholder="Nhóm (Size, Đường...)" /></div>
+  <div class="col-md-3"><input id="opt-value" class="form-control" placeholder="Giá trị (M, L, Ít đường...)" /></div>
+  <div class="col-md-3"><input id="opt-extra" type="number" min="0" step="1000" value="0" class="form-control" /></div>
+  <div class="col-md-3"><button type="button" id="opt-add" class="btn btn-outline-primary">+ Thêm tùy chọn</button></div>
+</div>
+
+<table class="table table-sm w-auto"><tbody id="opt-body"></tbody></table>
+
+<script>
+(function () {
+  const pid = @Model;
+  const token = document.querySelector('input[name="__RequestVerificationToken"]').value;
+  const base = '/Admin/Products';
+  const body = document.getElementById('opt-body');
+  const err = document.getElementById('opt-error');
+
+  function row(o) {
+    const tr = document.createElement('tr');
+    tr.innerHTML = '<td></td><td></td><td></td><td><button type="button" class="btn btn-sm btn-outline-danger">Xóa</button></td>';
+    tr.children[0].textContent = o.optionName;                       // textContent: chống XSS
+    tr.children[1].textContent = o.optionValue;
+    tr.children[2].textContent = o.extraPrice > 0 ? '+' + o.extraPrice.toLocaleString('vi-VN') + ' đ' : '';
+    tr.querySelector('button').onclick = async () => {
+      if (!confirm('Xóa tùy chọn này?')) return;
+      const r = await fetch(base + '/OptionDelete', { method: 'POST',
+        headers: { 'Content-Type': 'application/x-www-form-urlencoded', 'RequestVerificationToken': token },
+        body: 'optionId=' + o.productOptionId });
+      if (r.ok) tr.remove();
+    };
+    return tr;
+  }
+
+  async function load() {
+    const r = await fetch(base + '/OptionList/' + pid);
+    body.innerHTML = '';
+    (await r.json()).forEach(o => body.appendChild(row(o)));
+  }
+
+  document.getElementById('opt-add').onclick = async () => {
+    err.textContent = '';
+    const form = new URLSearchParams({
+      optionName: document.getElementById('opt-name').value,
+      optionValue: document.getElementById('opt-value').value,
+      extraPrice: document.getElementById('opt-extra').value || '0' });
+    const r = await fetch(base + '/OptionAdd/' + pid, { method: 'POST',
+      headers: { 'Content-Type': 'application/x-www-form-urlencoded', 'RequestVerificationToken': token },
+      body: form });
+    const data = await r.json();
+    if (!r.ok) { err.textContent = data.error || 'Lỗi'; return; }
+    body.appendChild(row(data.item));
+    document.getElementById('opt-value').value = '';
+  };
+  load();
+})();
+</script>

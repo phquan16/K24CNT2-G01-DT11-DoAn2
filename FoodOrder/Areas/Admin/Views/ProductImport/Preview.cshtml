@@ -1,0 +1,25 @@
+﻿@model FoodOrder.ViewModels.ImportPreviewViewModel
+<h3>Xem trước kết quả</h3>
+@if (Model.FileError != null) { <div class="alert alert-danger">@Model.FileError</div> }
+<p>
+  <span class="badge bg-success">Hợp lệ: @Model.OkCount</span>
+  <span class="badge bg-warning text-dark">Trùng: @Model.DuplicateCount</span>
+  <span class="badge bg-danger">Lỗi: @Model.ErrorCount</span>
+</p>
+<table class="table table-sm">
+  <thead><tr><th>Dòng</th><th>Tên món</th><th>Danh mục</th><th>Giá</th><th>Kết quả</th></tr></thead>
+  <tbody>
+  @foreach (var r in Model.Rows)
+  {
+    <tr class="@(r.Status == "Lỗi" ? "table-danger" : r.Status == "Trùng" ? "table-warning" : "")">
+      <td>@r.Line</td><td>@r.ProductName</td><td>@r.CategoryName</td><td>@r.Price.ToString("N0")</td>
+      <td>@r.Status @r.Message</td>
+    </tr>
+  }
+  </tbody>
+</table>
+@if (Model.OkCount > 0)
+{
+  <form asp-action="Commit" method="post"><button class="btn btn-success">Nhập @Model.OkCount món hợp lệ</button>
+    <a class="btn btn-light" asp-action="Index">Hủy</a></form>
+}

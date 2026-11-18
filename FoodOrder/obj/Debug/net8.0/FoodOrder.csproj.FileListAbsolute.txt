@@ -158,3 +158,4 @@ D:\K24CNT2\K24CNT2-G01-DT11-DoAn2\FoodOrder\obj\Debug\net8.0\FoodOrder.pdb
 D:\K24CNT2\K24CNT2-G01-DT11-DoAn2\FoodOrder\obj\Debug\net8.0\FoodOrder.genruntimeconfig.cache
 D:\K24CNT2\K24CNT2-G01-DT11-DoAn2\FoodOrder\obj\Debug\net8.0\ref\FoodOrder.dll
 D:\K24CNT2\K24CNT2-G01-DT11-DoAn2\FoodOrder\obj\Debug\net8.0\scopedcss\Views\Shared\_MenuLayout.cshtml.rz.scp.css
+D:\K24CNT2\K24CNT2-G01-DT11-DoAn2\FoodOrder\bin\Debug\net8.0\CsvHelper.dll
