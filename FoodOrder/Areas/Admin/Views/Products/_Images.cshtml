@@ -1,6 +1,6 @@
 ﻿@model List<FoodOrder.Models.ProductImage>
 @{
-    var productId = (int)ViewData["ProductId"]!;
+    var productId = ViewData["ProductId"] as int? ?? Model.FirstOrDefault()?.ProductId ?? 0;
 }
 
 <h5>Ảnh món</h5>
